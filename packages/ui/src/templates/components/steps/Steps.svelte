@@ -1,0 +1,138 @@
+<script lang="ts">
+  import { Steps, type StepsStepChangeDetails } from "@ark-ui/svelte/steps";
+  import { Check, ChevronLeft, ChevronRight } from "lucide-svelte";
+  import type { Snippet } from "svelte";
+
+  interface StepDefinition {
+    label: string;
+    description?: string;
+  }
+
+  interface Props {
+    items: StepDefinition[];
+    step?: number;
+    defaultStep?: number;
+    linear?: boolean;
+    orientation?: "horizontal" | "vertical";
+    disabled?: boolean;
+    class?: string;
+
+    onStepChange?: (details: StepsStepChangeDetails) => void;
+    onStepComplete?: () => void;
+
+    content?: Snippet<[number]>;
+    completed?: Snippet;
+  }
+
+  let {
+    items,
+    step = $bindable(0),
+    defaultStep,
+    linear = false,
+    orientation = "horizontal",
+    disabled = false,
+    class: className,
+    onStepChange,
+    onStepComplete,
+    content,
+    completed,
+  }: Props = $props();
+</script>
+
+<Steps.Root
+  count={items.length}
+  bind:step
+  {defaultStep}
+  {linear}
+  {orientation}
+  onStepChange={onStepChange}
+  onStepComplete={onStepComplete}
+  class="flex flex-col gap-4 {className ?? ''}"
+>
+  <Steps.List
+    class="flex items-center gap-0 {orientation === 'vertical' ? 'flex-col items-stretch' : ''}"
+  >
+    {#each items as item, i}
+      <Steps.Item index={i} class="flex items-center gap-2 {i < items.length - 1 ? 'flex-1' : ''}">
+        <Steps.Trigger
+          {disabled}
+          class="flex items-center gap-2 rounded-km-field px-2 py-1.5 text-sm font-medium transition-colors duration-150
+            text-km-muted-content
+            data-[current]:text-km-primary
+            data-[complete]:text-km-primary
+            hover:text-km-base-content
+            disabled:pointer-events-none disabled:opacity-50"
+        >
+          <Steps.Indicator
+            class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 text-xs font-semibold transition-colors duration-150
+              border-km-base-300 bg-km-base-100 text-km-muted-content
+              data-[current]:border-km-primary data-[current]:bg-km-primary data-[current]:text-km-primary-content
+              data-[complete]:border-km-primary data-[complete]:bg-km-primary data-[complete]:text-km-primary-content"
+          >
+            <Steps.ItemContext>
+              {#snippet children(context)}
+                {#if context.completed}
+                  <Check size={14} />
+                {:else}
+                  {i + 1}
+                {/if}
+              {/snippet}
+            </Steps.ItemContext>
+          </Steps.Indicator>
+          <span class="hidden sm:inline">
+            {item.label}
+            {#if item.description}
+              <span class="block text-xs font-normal text-km-muted-content">{item.description}</span>
+            {/if}
+          </span>
+        </Steps.Trigger>
+        {#if i < items.length - 1}
+          <Steps.Separator
+            class="mx-1 h-0.5 flex-1 rounded bg-km-base-300 transition-colors duration-150
+              data-[complete]:bg-km-primary"
+          />
+        {/if}
+      </Steps.Item>
+    {/each}
+  </Steps.List>
+
+  {#each items as _, i}
+    <Steps.Content index={i} class="rounded-km-box border border-km-base-300 bg-km-base-100 p-4">
+      {#if content}
+        {@render content(i)}
+      {/if}
+    </Steps.Content>
+  {/each}
+
+  <Steps.CompletedContent class="rounded-km-box border border-km-base-300 bg-km-base-100 p-4">
+    {#if completed}
+      {@render completed()}
+    {:else}
+      <div class="flex items-center gap-2 text-sm text-km-base-content">
+        <Check size={16} class="text-km-primary" />
+        All steps completed!
+      </div>
+    {/if}
+  </Steps.CompletedContent>
+
+  <div class="flex items-center justify-between">
+    <Steps.PrevTrigger
+      {disabled}
+      class="inline-flex items-center gap-1.5 rounded-km-field border border-km-base-300 bg-km-base-100 px-3 py-2 text-sm font-medium text-km-base-content transition-colors duration-150
+        hover:bg-km-base-200
+        disabled:pointer-events-none disabled:opacity-50"
+    >
+      <ChevronLeft size={16} />
+      Previous
+    </Steps.PrevTrigger>
+    <Steps.NextTrigger
+      {disabled}
+      class="inline-flex items-center gap-1.5 rounded-km-field bg-km-primary px-3 py-2 text-sm font-medium text-km-primary-content transition-colors duration-150
+        hover:opacity-90
+        disabled:pointer-events-none disabled:opacity-50"
+    >
+      Next
+      <ChevronRight size={16} />
+    </Steps.NextTrigger>
+  </div>
+</Steps.Root>
