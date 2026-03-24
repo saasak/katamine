@@ -53,7 +53,7 @@
   class="w-full {className ?? ''}"
 >
   <TagsInput.Control
-    class="flex flex-wrap items-center gap-1.5 rounded-km-field border border-km-base-300 bg-km-base-100 px-3 py-2 transition-colors duration-150 focus-within:border-km-primary focus-within:outline-2 focus-within:outline-km-primary focus-within:-outline-offset-1"
+    class="flex flex-wrap items-center gap-1.5 rounded-km-field border border-km-base-300 bg-km-base-100 px-3 py-2 transition-colors duration-150 focus-within:border-km-primary focus-within:outline-2 focus-within:outline-km-primary focus-within:-outline-offset-1 data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed"
   >
     <TagsInput.Context>
       {#snippet children(context)}
@@ -68,15 +68,17 @@
             <TagsInput.ItemInput class="min-w-0 border-none bg-transparent text-sm text-km-base-content outline-none" />
           </TagsInput.Item>
         {/each}
+        <TagsInput.Input
+          {placeholder}
+          class="min-w-[4rem] flex-1 border-none bg-transparent text-sm text-km-base-content outline-none placeholder:text-km-muted-content"
+        />
+        {#if context.value.length > 0}
+          <TagsInput.ClearTrigger class="flex cursor-pointer items-center justify-center rounded-km-selector p-1 text-km-muted-content transition-colors duration-150 hover:bg-km-muted hover:text-km-base-content">
+            <X size={14} />
+          </TagsInput.ClearTrigger>
+        {/if}
       {/snippet}
     </TagsInput.Context>
-    <TagsInput.Input
-      {placeholder}
-      class="min-w-[4rem] flex-1 border-none bg-transparent text-sm text-km-base-content outline-none placeholder:text-km-muted-content"
-    />
-    <TagsInput.ClearTrigger class="flex cursor-pointer items-center justify-center rounded-km-selector p-1 text-km-muted-content transition-colors duration-150 hover:bg-km-muted hover:text-km-base-content">
-      <X size={14} />
-    </TagsInput.ClearTrigger>
   </TagsInput.Control>
   <TagsInput.HiddenInput />
 </TagsInput.Root>
