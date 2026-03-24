@@ -1,0 +1,4 @@
+@import "tailwindcss";
+@import "$theme/katamine.css";
+
+@source "../../ui/src/templates/components";
