@@ -10,6 +10,8 @@ export const componentNav = [
   { label: "Dialog", href: "/components/dialog" },
   { label: "Menu", href: "/components/menu" },
   { label: "Password Input", href: "/components/password-input" },
+  { label: "ScrollArea", href: "/components/scroll-area" },
+  { label: "Splitter", href: "/components/splitter" },
   { label: "Steps", href: "/components/steps" },
   { label: "Switch", href: "/components/switch" },
   { label: "Tabs", href: "/components/tabs" },
