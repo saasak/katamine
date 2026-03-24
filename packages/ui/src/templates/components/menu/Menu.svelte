@@ -29,7 +29,6 @@
     onSelect?: (details: Menu.SelectionDetails) => void;
     onOpenChange?: (details: Menu.OpenChangeDetails) => void;
     trigger: Snippet;
-    name?: string;
     class?: string;
   }
 
@@ -43,7 +42,6 @@
     onSelect,
     onOpenChange,
     trigger,
-    name,
     class: className,
   }: Props = $props();
 
@@ -54,6 +52,9 @@
   function isGroup(entry: MenuEntry): entry is MenuGroupDef {
     return "type" in entry && entry.type === "group";
   }
+
+  const itemClass =
+    "flex cursor-pointer items-center rounded-km-selector px-3 py-2 text-sm text-km-base-content transition-colors duration-150 data-[highlighted]:bg-km-base-200 data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50";
 </script>
 
 <Menu.Root
@@ -91,7 +92,7 @@
                 <Menu.Item
                   value={item.value}
                   disabled={item.disabled}
-                  class="flex cursor-pointer items-center rounded-km-selector px-3 py-2 text-sm text-km-base-content transition-colors duration-150 data-[highlighted]:bg-km-base-200 data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50"
+                  class={itemClass}
                 >
                   {item.label}
                 </Menu.Item>
@@ -101,7 +102,7 @@
             <Menu.Item
               value={entry.value}
               disabled={entry.disabled}
-              class="flex cursor-pointer items-center rounded-km-selector px-3 py-2 text-sm text-km-base-content transition-colors duration-150 data-[highlighted]:bg-km-base-200 data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50"
+              class={itemClass}
             >
               {entry.label}
             </Menu.Item>
@@ -111,7 +112,4 @@
     </Menu.Positioner>
   </Portal>
 
-  {#if name}
-    <input type="hidden" {name} value="" />
-  {/if}
 </Menu.Root>
