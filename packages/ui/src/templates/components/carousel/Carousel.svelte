@@ -57,49 +57,54 @@
   const pageCount = $derived(Math.ceil(items.length / slidesPerPage));
 </script>
 
-<Carousel.Root
-  slideCount={items.length}
-  {orientation}
-  autoplay={autoplay ? { delay: autoplayDelay } : false}
-  {loop}
-  {slidesPerPage}
-  {spacing}
-  bind:page
-  {defaultPage}
-  {onPageChange}
-  class="relative w-full {className ?? ''}"
+<div
+  class="{disabled ? 'pointer-events-none opacity-50' : ''}"
+  aria-disabled={disabled || undefined}
 >
-  <Carousel.ItemGroup class="flex">
-    {#each items as item, index (index)}
-      <Carousel.Item {index} class="min-w-0 flex-shrink-0">
-        {@render children(item, index)}
-      </Carousel.Item>
-    {/each}
-  </Carousel.ItemGroup>
-
-  {#if showControls}
-    <Carousel.Control class="absolute inset-x-0 top-1/2 flex -translate-y-1/2 justify-between px-2">
-      <Carousel.PrevTrigger
-        class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-km-selector border border-km-base-300 bg-km-base-100 text-km-base-content shadow-km-sm transition-colors duration-150 hover:bg-km-base-200 disabled:cursor-not-allowed disabled:opacity-50"
-      >
-        <ChevronLeft size={18} />
-      </Carousel.PrevTrigger>
-      <Carousel.NextTrigger
-        class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-km-selector border border-km-base-300 bg-km-base-100 text-km-base-content shadow-km-sm transition-colors duration-150 hover:bg-km-base-200 disabled:cursor-not-allowed disabled:opacity-50"
-      >
-        <ChevronRight size={18} />
-      </Carousel.NextTrigger>
-    </Carousel.Control>
-  {/if}
-
-  {#if showIndicators && pageCount > 1}
-    <Carousel.IndicatorGroup class="mt-3 flex items-center justify-center gap-1.5">
-      {#each { length: pageCount } as _, index (index)}
-        <Carousel.Indicator
-          {index}
-          class="h-2 w-2 cursor-pointer rounded-km-selector border-none bg-km-base-300 transition-colors duration-150 hover:bg-km-muted-content data-[current]:bg-km-primary"
-        />
+  <Carousel.Root
+    slideCount={items.length}
+    {orientation}
+    autoplay={disabled ? false : autoplay ? { delay: autoplayDelay } : false}
+    {loop}
+    {slidesPerPage}
+    {spacing}
+    bind:page
+    {defaultPage}
+    {onPageChange}
+    class="relative w-full {className ?? ''}"
+  >
+    <Carousel.ItemGroup class="flex">
+      {#each items as item, index (index)}
+        <Carousel.Item {index} class="min-w-0 flex-shrink-0">
+          {@render children(item, index)}
+        </Carousel.Item>
       {/each}
-    </Carousel.IndicatorGroup>
-  {/if}
-</Carousel.Root>
+    </Carousel.ItemGroup>
+
+    {#if showControls}
+      <Carousel.Control class="absolute inset-x-0 top-1/2 flex -translate-y-1/2 justify-between px-2">
+        <Carousel.PrevTrigger
+          class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-km-selector border border-km-base-300 bg-km-base-100 text-km-base-content shadow-km-sm transition-colors duration-150 hover:bg-km-base-200 disabled:cursor-not-allowed disabled:opacity-50"
+        >
+          <ChevronLeft size={18} />
+        </Carousel.PrevTrigger>
+        <Carousel.NextTrigger
+          class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-km-selector border border-km-base-300 bg-km-base-100 text-km-base-content shadow-km-sm transition-colors duration-150 hover:bg-km-base-200 disabled:cursor-not-allowed disabled:opacity-50"
+        >
+          <ChevronRight size={18} />
+        </Carousel.NextTrigger>
+      </Carousel.Control>
+    {/if}
+
+    {#if showIndicators && pageCount > 1}
+      <Carousel.IndicatorGroup class="mt-3 flex items-center justify-center gap-1.5">
+        {#each { length: pageCount } as _, index (index)}
+          <Carousel.Indicator
+            {index}
+            class="h-2 w-2 cursor-pointer rounded-km-selector border-none bg-km-base-300 transition-colors duration-150 hover:bg-km-muted-content data-[current]:bg-km-primary"
+          />
+        {/each}
+      </Carousel.IndicatorGroup>
+    {/if}
+  </Carousel.Root>
+</div>
