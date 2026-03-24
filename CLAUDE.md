@@ -1,0 +1,74 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## Project Overview
+
+Katamine is a CLI tool that copies ready-to-use, themed SvelteKit components into user projects. Built on Ark UI/Zag.JS primitives. Like ShadCN but with fully composed components (not just primitives) and DaisyUI-style theming.
+
+**Single user context**: this is for internal products — iterate fast, no backwards-compat concerns.
+
+## Monorepo Structure
+
+pnpm workspace with two packages:
+
+- **`packages/ui`** (`katamine`) — CLI + component templates. Published to npm.
+- **`packages/docs`** (`@katamine/docs`) — SvelteKit app that imports components directly from ui source via `$ui` and `$theme` aliases.
+
+Root scripts:
+- `pnpm build` — build all packages
+- `pnpm dev:docs` — run docs dev server
+- `pnpm build:ui` / `pnpm build:docs` — build individual packages
+
+## Stack
+
+- SvelteKit (Svelte 5), Ark UI / Zag.JS, Tailwind 4, Vite 8
+- Mise for runtime versions (node, pnpm)
+- Always use cutting-edge dependency versions
+
+## CLI
+
+- `npx katamine init` — scaffolds deps, base theme, CSS variables in a SvelteKit project
+- `npx katamine add <component>` — copies component to `src/lib/components/`
+
+## Component design principles
+
+- Wrap Ark/Zag primitives into single ready-to-use components with clean props interfaces
+- Both controlled (`bind:value`) and uncontrolled (`onValueChange`) APIs
+- Form submission handled natively by Ark/Zag (name prop forwarded to the visible input)
+- Async-ready where applicable (e.g., ComboBox)
+- A11y delegated entirely to Ark/Zag
+- Svelte 5 snippets/slots used on a case-by-case basis
+- Users own the source — no passthrough props system, edit the component directly for deep customization
+
+## Theming
+
+- Semantic `--km-*` CSS variables (OKLCH), mapped to Tailwind 4 via `@theme inline`
+- Theme switching via `data-theme` attribute on `<html>`
+- Components use Tailwind utility classes exclusively (no `:global()` CSS blocks)
+
+### Token structure
+
+**Radius** (DaisyUI v5 semantic): `--km-radius-selector` (checkboxes, toggles, badges), `--km-radius-field` (inputs, buttons, tabs), `--km-radius-box` (cards, modals, dropdowns). Tailwind: `rounded-km-selector`, `rounded-km-field`, `rounded-km-box`.
+
+**Colors** (DaisyUI-inspired + ShadCN muted):
+- Brand: `primary`, `secondary`, `accent` — each with `-content` suffix for contrast text
+- Neutral: `neutral` / `neutral-content`
+- Base surfaces (elevation model): `base-100` (page bg), `base-200` (elevated), `base-300` (borders/dividers), `base-content` (default text)
+- Muted (ShadCN): `muted` / `muted-content` — subdued/disabled states
+- Status: `info`, `success`, `warning`, `error` — each with `-content` suffix
+
+Tailwind usage: `bg-km-base-100`, `text-km-base-content`, `border-km-base-300`, `bg-km-primary`, `text-km-primary-content`, etc.
+
+**Shadows, transitions, z-index**: `--km-shadow-sm/md/lg`, `--km-transition-fast/base/slow`, `--km-z-*`. Z-index used as arbitrary values: `z-[var(--km-z-dropdown)]`.
+
+## Docs
+
+- SvelteKit app at `packages/docs/`
+- Imports raw .svelte components from ui via `$ui` alias (e.g., `import { ComboBox } from "$ui/combobox"`)
+- Imports theme CSS from ui via `$theme` alias in `app.css`
+- Static adapter for deployment
+
+## Testing
+
+- Visual regression testing only
