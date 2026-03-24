@@ -6,6 +6,7 @@ export const componentNav = [
   { label: "Collapsible", href: "/components/collapsible" },
   { label: "ComboBox", href: "/components/combobox" },
   { label: "DatePicker", href: "/components/date-picker" },
+  { label: "Dialog", href: "/components/dialog" },
   { label: "Menu", href: "/components/menu" },
   { label: "Tabs", href: "/components/tabs" },
   { label: "TagsInput", href: "/components/tags-input" },
