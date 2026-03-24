@@ -94,7 +94,13 @@
           countdown
           startMs={10 * 1000}
           segments={["seconds"]}
-          onTick={() => (tickCount += 1)}
+          onTick={(details) => {
+            if (completed && details.value > 0) {
+              completed = false;
+              tickCount = 0;
+            }
+            tickCount += 1;
+          }}
           onComplete={() => (completed = true)}
         />
         {#if completed}

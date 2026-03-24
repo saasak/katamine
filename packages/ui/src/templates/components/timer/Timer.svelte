@@ -43,7 +43,11 @@
   }: Props = $props();
 </script>
 
-<div class={disabled ? "pointer-events-none opacity-50" : undefined} aria-disabled={disabled || undefined}>
+<div
+  inert={disabled || undefined}
+  class={disabled ? "pointer-events-none opacity-50" : undefined}
+  aria-disabled={disabled || undefined}
+>
   <Timer.Root
     {countdown}
     {startMs}
@@ -52,7 +56,7 @@
     {interval}
     {onTick}
     {onComplete}
-    class="inline-flex flex-col items-center gap-4 {className ?? ''}"
+    class="inline-flex flex-col items-center gap-4{className ? ` ${className}` : ''}"
   >
     <Timer.Area class="flex items-center gap-0.5">
       {#each segments as seg, i (seg)}
