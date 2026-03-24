@@ -37,6 +37,7 @@
     <h1 class="text-3xl font-bold">FloatingPanel</h1>
     <p class="mt-2 text-km-muted-content">
       A draggable, resizable floating panel that can be minimized and maximized. Built on Ark UI.
+      The panel is portalled to <code class="rounded bg-km-base-200 px-1 font-mono text-xs">&lt;body&gt;</code>, so parent overflow or stacking-context CSS does not affect its position or z-index.
     </p>
   </div>
 
@@ -47,7 +48,7 @@
     <DemoCard
       title="Basic"
       description="A floating panel with a trigger button, drag header, and body content."
-      code={`<FloatingPanel title="Notes" defaultOpen={true}>
+      code={`<FloatingPanel title="Notes" defaultOpen={true} defaultPosition={{ x: 40, y: 40 }}>
   {#snippet trigger()}
     Open Panel
   {/snippet}
@@ -74,6 +75,7 @@
   resizable={false}
   defaultSize={{ width: 280, height: 160 }}
   defaultOpen={true}
+  defaultPosition={{ x: 40, y: 40 }}
 >
   {#snippet trigger()}Toggle{/snippet}
   {#snippet children()}
@@ -104,7 +106,7 @@
 <button onclick={() => (open = !open)}>
   {open ? 'Close' : 'Open'} Panel
 </button>
-<FloatingPanel title="Controlled" bind:open>
+<FloatingPanel title="Controlled" bind:open defaultPosition={{ x: 40, y: 40 }}>
   {#snippet children()}
     <p>Controlled via external state.</p>
   {/snippet}
@@ -131,6 +133,7 @@
       code={`<FloatingPanel
   title="Events"
   defaultOpen={true}
+  defaultPosition={{ x: 40, y: 40 }}
   onPositionChange={(d) => console.log('position', d.position)}
   onSizeChange={(d) => console.log('size', d.size)}
 >
@@ -161,7 +164,7 @@
     <DemoCard
       title="Disabled"
       description="Panel with all interactions disabled."
-      code={`<FloatingPanel title="Disabled" disabled={true} defaultOpen={true}>
+      code={`<FloatingPanel title="Disabled" disabled={true} defaultOpen={true} defaultPosition={{ x: 40, y: 40 }}>
   {#snippet trigger()}Open{/snippet}
   {#snippet children()}
     <p>Cannot be moved or resized.</p>

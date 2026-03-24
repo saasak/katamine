@@ -1,7 +1,7 @@
 <script lang="ts">
   import { FloatingPanel } from "@ark-ui/svelte/floating-panel";
   import { Portal } from "@ark-ui/svelte/portal";
-  import { X, Minus, Maximize2, Minimize2 } from "lucide-svelte";
+  import { X, Minus, Maximize2, Minimize2, GripHorizontal } from "lucide-svelte";
   import type { Snippet } from "svelte";
 
   interface Props {
@@ -92,14 +92,13 @@
   {#if trigger}
     <FloatingPanel.Trigger
       class="inline-flex cursor-pointer items-center justify-center rounded-km-field border border-km-base-300 bg-km-base-100 px-3 py-2 text-sm font-medium text-km-base-content transition-colors duration-150 hover:bg-km-base-200 disabled:cursor-not-allowed disabled:opacity-50"
-      {disabled}
     >
       {@render trigger()}
     </FloatingPanel.Trigger>
   {/if}
 
   <Portal>
-    <FloatingPanel.Positioner class="z-[var(--km-z-dropdown)]">
+    <FloatingPanel.Positioner class="z-[var(--km-z-modal)]">
       <FloatingPanel.Content
         class="flex flex-col overflow-hidden rounded-km-box border border-km-base-300 bg-km-base-100 shadow-km-lg {className ?? ''}"
       >
@@ -114,29 +113,35 @@
               <FloatingPanel.Title class="select-none text-sm font-medium text-km-base-content">
                 {title}
               </FloatingPanel.Title>
+            {:else}
+              <GripHorizontal size={14} class="text-km-muted-content" />
             {/if}
           </FloatingPanel.DragTrigger>
 
           <div class="flex shrink-0 items-center gap-0.5">
             <FloatingPanel.StageTrigger
               stage="minimized"
+              aria-label="Minimize"
               class="flex cursor-pointer items-center justify-center rounded-km-selector p-1 text-km-muted-content transition-colors duration-150 hover:bg-km-muted hover:text-km-base-content"
             >
               <Minus size={14} />
             </FloatingPanel.StageTrigger>
             <FloatingPanel.StageTrigger
               stage="maximized"
+              aria-label="Maximize"
               class="flex cursor-pointer items-center justify-center rounded-km-selector p-1 text-km-muted-content transition-colors duration-150 hover:bg-km-muted hover:text-km-base-content"
             >
               <Maximize2 size={14} />
             </FloatingPanel.StageTrigger>
             <FloatingPanel.StageTrigger
               stage="default"
+              aria-label="Restore"
               class="flex cursor-pointer items-center justify-center rounded-km-selector p-1 text-km-muted-content transition-colors duration-150 hover:bg-km-muted hover:text-km-base-content"
             >
               <Minimize2 size={14} />
             </FloatingPanel.StageTrigger>
             <FloatingPanel.CloseTrigger
+              aria-label="Close"
               class="flex cursor-pointer items-center justify-center rounded-km-selector p-1 text-km-muted-content transition-colors duration-150 hover:bg-km-muted hover:text-km-base-content"
             >
               <X size={14} />
