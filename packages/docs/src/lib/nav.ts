@@ -4,4 +4,5 @@ export const componentNav = [
   { label: "Collapsible", href: "/components/collapsible" },
   { label: "ComboBox", href: "/components/combobox" },
   { label: "Menu", href: "/components/menu" },
+  { label: "Tabs", href: "/components/tabs" },
 ];
