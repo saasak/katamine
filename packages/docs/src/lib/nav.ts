@@ -14,6 +14,7 @@ export const componentNav = [
   { label: "Popover", href: "/components/popover" },
   { label: "QrCode", href: "/components/qr-code" },
   { label: "RatingGroup", href: "/components/rating-group" },
+  { label: "ScrollArea", href: "/components/scroll-area" },
   { label: "Steps", href: "/components/steps" },
   { label: "Switch", href: "/components/switch" },
   { label: "Tabs", href: "/components/tabs" },
