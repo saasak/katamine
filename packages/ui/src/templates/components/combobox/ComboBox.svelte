@@ -49,6 +49,7 @@
     class: className,
   }: Props = $props();
 
+  // Intentional initial-value capture — async/sync mode is a design-time decision
   const isAsync = !!onSearch;
 
   // --- Sync mode ---
@@ -63,8 +64,8 @@
   const syncCollection = !isAsync
     ? useListCollection({
         get initialItems() { return items; },
-        itemToString: itemToLabel,
-        itemToValue,
+        get itemToString() { return itemToLabel; },
+        get itemToValue() { return itemToValue; },
         filter: getFilterFn(),
       })
     : undefined;
@@ -79,10 +80,12 @@
       ? createListCollection({
           items: asyncItems,
           itemToString: itemToLabel,
-          itemToValue,
+          itemToValue: itemToValue,
         })
       : undefined
   );
+
+  $effect(() => () => clearTimeout(debounceTimer));
 
   function handleInputChange(details: Combobox.InputValueChangeDetails) {
     onInputValueChange?.(details);
@@ -101,6 +104,8 @@
         try {
           const result = await onSearch!(query);
           asyncItems = result;
+        } catch {
+          asyncItems = [];
         } finally {
           asyncLoading = false;
         }
