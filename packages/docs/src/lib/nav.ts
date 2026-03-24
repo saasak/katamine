@@ -8,6 +8,7 @@ export const componentNav = [
   { label: "DatePicker", href: "/components/date-picker" },
   { label: "Dialog", href: "/components/dialog" },
   { label: "Menu", href: "/components/menu" },
+  { label: "NumberInput", href: "/components/number-input" },
   { label: "Tabs", href: "/components/tabs" },
   { label: "TagsInput", href: "/components/tags-input" },
   { label: "Toast", href: "/components/toast" },
