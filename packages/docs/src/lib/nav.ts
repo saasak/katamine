@@ -7,6 +7,7 @@ export const componentNav = [
   { label: "ComboBox", href: "/components/combobox" },
   { label: "DatePicker", href: "/components/date-picker" },
   { label: "Dialog", href: "/components/dialog" },
+  { label: "FileUpload", href: "/components/file-upload" },
   { label: "Menu", href: "/components/menu" },
   { label: "Tabs", href: "/components/tabs" },
   { label: "TagsInput", href: "/components/tags-input" },
