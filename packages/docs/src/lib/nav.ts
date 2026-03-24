@@ -21,4 +21,5 @@ export const componentNav = [
   { label: "Toast", href: "/components/toast" },
   { label: "Toggle", href: "/components/toggle" },
   { label: "Tooltip", href: "/components/tooltip" },
+  { label: "Tour", href: "/components/tour" },
 ];
