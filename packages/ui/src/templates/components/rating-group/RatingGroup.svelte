@@ -25,6 +25,8 @@
     onValueChange?: (details: RatingGroup.ValueChangeDetails) => void;
     /** Callback when hover changes */
     onHoverChange?: (details: RatingGroup.HoverChangeDetails) => void;
+    /** Accessible label when the visible label prop is omitted */
+    ariaLabel?: string;
     /** Additional CSS classes on the root element */
     class?: string;
   }
@@ -34,6 +36,7 @@
     defaultValue,
     count = 5,
     label,
+    ariaLabel,
     name,
     disabled = false,
     readOnly = false,
@@ -56,7 +59,8 @@
   {allowHalf}
   {onValueChange}
   {onHoverChange}
-  class="inline-flex flex-col gap-1.5 {className ?? ''}"
+  aria-label={ariaLabel}
+  class="inline-flex flex-col gap-1.5{className ? ` ${className}` : ''}"
 >
   {#if label}
     <RatingGroup.Label class="text-sm font-medium text-km-base-content data-[disabled]:text-km-muted-content">
@@ -69,7 +73,7 @@
         {#each context().items as index (index)}
           <RatingGroup.Item
             {index}
-            class="cursor-pointer rounded-km-selector p-0.5 text-km-base-300 outline-none transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-km-primary focus-visible:outline-offset-1 data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50 data-[readonly]:cursor-default"
+            class="cursor-pointer rounded-km-selector p-0.5 text-km-base-300 outline-none transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-km-primary focus-visible:outline-offset-1 data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50 data-[readonly]:cursor-default data-[readonly]:opacity-75"
           >
             <RatingGroup.ItemContext>
               {#snippet render(itemContext)}

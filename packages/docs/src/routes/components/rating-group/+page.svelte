@@ -18,6 +18,7 @@
     { name: "allowHalf", type: "boolean", default: "false", description: "Allow half-star ratings (0.5 increments)" },
     { name: "onValueChange", type: "(details: RatingGroup.ValueChangeDetails) => void", default: "—", description: "Callback when the rating value changes" },
     { name: "onHoverChange", type: "(details: RatingGroup.HoverChangeDetails) => void", default: "—", description: "Callback when the hovered star changes" },
+    { name: "ariaLabel", type: "string", default: "—", description: "Accessible label for screen readers when the visible label prop is omitted" },
     { name: "class", type: "string", default: "—", description: "Additional CSS classes on the root element" },
   ];
 </script>
