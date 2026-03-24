@@ -9,6 +9,7 @@ export const componentNav = [
   { label: "DatePicker", href: "/components/date-picker" },
   { label: "Dialog", href: "/components/dialog" },
   { label: "FloatingPanel", href: "/components/floating-panel" },
+  { label: "Marquee", href: "/components/marquee" },
   { label: "Menu", href: "/components/menu" },
   { label: "Password Input", href: "/components/password-input" },
   { label: "Popover", href: "/components/popover" },
