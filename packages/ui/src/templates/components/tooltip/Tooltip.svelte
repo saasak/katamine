@@ -51,7 +51,7 @@
   {positioning}
   {onOpenChange}
 >
-  <Tooltip.Trigger asChild>
+  <Tooltip.Trigger>
     {#snippet child(triggerProps)}
       <span {...triggerProps} class="inline-flex">
         {@render children()}

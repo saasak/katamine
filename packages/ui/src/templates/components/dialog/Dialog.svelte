@@ -67,8 +67,12 @@
   {onOpenChange}
 >
   {#if trigger}
-    <Dialog.Trigger {disabled} class="inline-flex">
-      {@render trigger()}
+    <Dialog.Trigger {disabled}>
+      {#snippet child(triggerProps)}
+        <span {...triggerProps} class="inline-flex">
+          {@render trigger()}
+        </span>
+      {/snippet}
     </Dialog.Trigger>
   {/if}
 
