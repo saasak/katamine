@@ -12,6 +12,7 @@ export const componentNav = [
   { label: "Menu", href: "/components/menu" },
   { label: "Password Input", href: "/components/password-input" },
   { label: "QrCode", href: "/components/qr-code" },
+  { label: "RatingGroup", href: "/components/rating-group" },
   { label: "Steps", href: "/components/steps" },
   { label: "Switch", href: "/components/switch" },
   { label: "Tabs", href: "/components/tabs" },
