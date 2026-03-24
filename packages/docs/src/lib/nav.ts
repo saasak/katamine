@@ -11,6 +11,7 @@ export const componentNav = [
   { label: "Switch", href: "/components/switch" },
   { label: "Tabs", href: "/components/tabs" },
   { label: "TagsInput", href: "/components/tags-input" },
+  { label: "Toggle", href: "/components/toggle" },
   { label: "Toast", href: "/components/toast" },
   { label: "Tooltip", href: "/components/tooltip" },
 ];
