@@ -92,14 +92,23 @@
       description="Scroll area wrapping a list of items with different heights."
       code={`<ScrollArea class="h-64 rounded-km-box border border-km-base-300">
   <div class="divide-y divide-km-base-300">
-    {#each items as item}
+    {#each [
+      { initials: "AL", name: "Alice Larsson", email: "alice@example.com" },
+      { initials: "BM", name: "Bob Martin", email: "bob@example.com" },
+      { initials: "CR", name: "Clara Rossi", email: "clara@example.com" },
+      { initials: "DK", name: "David Kim", email: "david@example.com" },
+      { initials: "EV", name: "Eva Virtanen", email: "eva@example.com" },
+      { initials: "FN", name: "Frank Novak", email: "frank@example.com" },
+      { initials: "GH", name: "Grace Huang", email: "grace@example.com" },
+      { initials: "HB", name: "Hugo Bernard", email: "hugo@example.com" },
+    ] as item}
       <div class="flex items-start gap-3 p-4">
-        <div class="size-8 shrink-0 rounded-full bg-km-primary flex items-center justify-center text-xs text-km-primary-content font-semibold">
+        <div class="flex size-8 shrink-0 items-center justify-center rounded-full bg-km-primary text-xs font-semibold text-km-primary-content">
           {item.initials}
         </div>
         <div>
           <p class="text-sm font-medium">{item.name}</p>
-          <p class="text-xs text-km-muted-content mt-0.5">{item.email}</p>
+          <p class="mt-0.5 text-xs text-km-muted-content">{item.email}</p>
         </div>
       </div>
     {/each}
