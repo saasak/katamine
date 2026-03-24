@@ -59,7 +59,7 @@
     { name: "onSelect", type: "(details: { value: string }) => void", default: "—", description: "Callback when a menu item is selected" },
     { name: "onOpenChange", type: "(details: { open: boolean }) => void", default: "—", description: "Callback when the menu opens or closes" },
     { name: "trigger", type: "Snippet", default: "—", description: "Content rendered inside the trigger button" },
-{ name: "class", type: "string", default: "—", description: "Additional CSS classes on the menu content" },
+    { name: "class", type: "string", default: "—", description: "Additional CSS classes on the menu content" },
   ];
 </script>
 
