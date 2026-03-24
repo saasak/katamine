@@ -21,6 +21,7 @@ export const componentNav = [
   { label: "RadioGroup", href: "/components/radio-group" },
   { label: "RatingGroup", href: "/components/rating-group" },
   { label: "ScrollArea", href: "/components/scroll-area" },
+  { label: "Select", href: "/components/select" },
   { label: "SignaturePad", href: "/components/signature-pad" },
   { label: "Slider", href: "/components/slider" },
   { label: "Steps", href: "/components/steps" },
