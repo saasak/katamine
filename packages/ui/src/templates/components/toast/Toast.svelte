@@ -34,7 +34,7 @@
 <Toaster {toaster} class={className ?? ""}>
   {#snippet children(toast)}
     <Toast.Root
-      class="flex w-80 items-start gap-3 rounded-km-box border border-km-base-300 bg-km-base-100 p-4 shadow-km-lg data-[state=open]:animate-in data-[state=open]:slide-in-from-bottom-2 data-[state=open]:fade-in data-[state=closed]:animate-out data-[state=closed]:slide-out-to-right-2 data-[state=closed]:fade-out"
+      class="flex w-80 items-start gap-3 rounded-km-box border border-km-base-300 bg-km-base-100 p-4 shadow-km-lg transition-all duration-300 ease-out data-[state=open]:translate-x-0 data-[state=open]:translate-y-0 data-[state=open]:opacity-100 data-[state=closed]:translate-x-2 data-[state=closed]:opacity-0"
     >
       {@const Icon = iconForType(toast().type)}
       <span class="mt-0.5 flex-shrink-0 {colorForType(toast().type)}">
