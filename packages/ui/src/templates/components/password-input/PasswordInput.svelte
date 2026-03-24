@@ -50,7 +50,7 @@
   class="relative w-full {className ?? ''}"
 >
   <PasswordInput.Control
-    class="flex items-center rounded-km-field border bg-km-base-100 transition-colors duration-150 focus-within:outline-2 focus-within:-outline-offset-1 data-[invalid]:border-km-error data-[invalid]:focus-within:border-km-error data-[invalid]:focus-within:outline-km-error data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50 {invalid ? 'border-km-error' : 'border-km-base-300 focus-within:border-km-primary focus-within:outline-km-primary'}"
+    class="flex items-center rounded-km-field border bg-km-base-100 transition-colors duration-150 focus-within:outline-2 focus-within:-outline-offset-1 data-[invalid]:focus-within:outline-km-error data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50 {invalid ? 'border-km-error' : 'border-km-base-300 focus-within:border-km-primary focus-within:outline-km-primary'}"
   >
     <PasswordInput.Input
       bind:value
