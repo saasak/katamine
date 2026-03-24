@@ -13,6 +13,7 @@ export const componentNav = [
   { label: "Menu", href: "/components/menu" },
   { label: "Pagination", href: "/components/pagination" },
   { label: "Password Input", href: "/components/password-input" },
+  { label: "PinInput", href: "/components/pin-input" },
   { label: "Popover", href: "/components/popover" },
   { label: "QrCode", href: "/components/qr-code" },
   { label: "RatingGroup", href: "/components/rating-group" },
