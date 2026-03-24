@@ -13,5 +13,6 @@ export const componentNav = [
   { label: "Tabs", href: "/components/tabs" },
   { label: "TagsInput", href: "/components/tags-input" },
   { label: "Toast", href: "/components/toast" },
+  { label: "Toggle", href: "/components/toggle" },
   { label: "Tooltip", href: "/components/tooltip" },
 ];
