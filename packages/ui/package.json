@@ -1,0 +1,36 @@
+{
+  "name": "katamine",
+  "version": "0.1.0",
+  "description": "Ready-to-use, themed SvelteKit components built on Ark UI/Zag.JS",
+  "type": "module",
+  "bin": {
+    "katamine": "dist/cli/index.js"
+  },
+  "scripts": {
+    "prebuild": "tsx scripts/bundle-templates.ts",
+    "build": "tsup",
+    "dev": "tsup --watch"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "commander": "^13.1.0",
+    "@clack/prompts": "^0.10.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.2",
+    "@types/node": "^22.13.10",
+    "tsx": "^4.19.3"
+  },
+  "keywords": [
+    "svelte",
+    "sveltekit",
+    "components",
+    "ui",
+    "ark-ui",
+    "cli"
+  ],
+  "license": "MIT"
+}
