@@ -11,6 +11,7 @@ export const componentNav = [
   { label: "FloatingPanel", href: "/components/floating-panel" },
   { label: "Menu", href: "/components/menu" },
   { label: "Password Input", href: "/components/password-input" },
+  { label: "Popover", href: "/components/popover" },
   { label: "QrCode", href: "/components/qr-code" },
   { label: "RatingGroup", href: "/components/rating-group" },
   { label: "Steps", href: "/components/steps" },
