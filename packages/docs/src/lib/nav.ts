@@ -5,6 +5,7 @@ export const componentNav = [
   { label: "Checkbox", href: "/components/checkbox" },
   { label: "Collapsible", href: "/components/collapsible" },
   { label: "ComboBox", href: "/components/combobox" },
+  { label: "DatePicker", href: "/components/date-picker" },
   { label: "Menu", href: "/components/menu" },
   { label: "Tabs", href: "/components/tabs" },
   { label: "TagsInput", href: "/components/tags-input" },
