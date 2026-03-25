@@ -103,7 +103,7 @@
     {#each Array.from({ length: count }) as _, index}
       <PinInput.Input
         {index}
-        class="h-11 w-11 rounded-km-field border border-km-base-300 bg-km-base-100 text-center text-base font-medium text-km-base-content outline-none transition-colors duration-150 placeholder:text-km-muted-content focus:border-km-primary focus:outline-2 focus:outline-km-primary focus:-outline-offset-1 data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50 data-[invalid]:border-km-error"
+        class="h-11 w-11 rounded-km-field border border-km-base-300 bg-km-base-100 text-center text-base font-medium text-km-base-content outline-none transition-colors duration-150 placeholder:text-km-muted-content focus:border-km-primary focus:outline-2 focus:outline-km-primary focus:-outline-offset-1 data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50 data-[invalid]:border-km-error data-[invalid]:focus:outline-km-error"
       />
     {/each}
   </PinInput.Control>
