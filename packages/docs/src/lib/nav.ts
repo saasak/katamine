@@ -17,6 +17,7 @@ export const componentNav = [
   { label: "QrCode", href: "/components/qr-code" },
   { label: "RatingGroup", href: "/components/rating-group" },
   { label: "ScrollArea", href: "/components/scroll-area" },
+  { label: "SignaturePad", href: "/components/signature-pad" },
   { label: "Slider", href: "/components/slider" },
   { label: "Steps", href: "/components/steps" },
   { label: "Switch", href: "/components/switch" },
