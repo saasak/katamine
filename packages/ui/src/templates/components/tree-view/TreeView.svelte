@@ -51,11 +51,11 @@
 </script>
 
 {#snippet renderNodes(nodeList: TreeNode[], parentPath: number[])}
-  {#each nodeList as node, i}
+  {#each nodeList as node, i (node.value)}
     <TreeView.NodeProvider {node} indexPath={[...parentPath, i]}>
       {#if node.children?.length}
         <TreeView.Branch class="relative">
-          <TreeView.BranchControl class="flex w-full cursor-pointer items-center gap-1 rounded-km-selector px-2 py-1 text-sm text-km-base-content transition-colors duration-150 hover:bg-km-base-200 data-[selected]:bg-km-base-200 data-[selected]:text-km-primary data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50">
+          <TreeView.BranchControl class="flex w-full cursor-pointer items-center gap-1 rounded-km-selector px-2 py-1 text-sm text-km-base-content transition-colors duration-150 hover:bg-km-base-200 data-[selected]:bg-km-base-200 data-[selected]:text-km-primary data-[focus-visible]:outline-2 data-[focus-visible]:outline-km-primary data-[focus-visible]:-outline-offset-1 data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50">
             <TreeView.BranchTrigger class="flex h-5 w-5 shrink-0 items-center justify-center rounded-km-selector text-km-muted-content transition-colors duration-150 hover:bg-km-muted hover:text-km-base-content data-[disabled]:pointer-events-none">
               <TreeView.BranchIndicator class="transition-transform duration-150 data-[state=open]:rotate-90">
                 <ChevronRight size={14} />
@@ -68,7 +68,7 @@
           </TreeView.BranchContent>
         </TreeView.Branch>
       {:else}
-        <TreeView.Item class="flex w-full cursor-pointer items-center gap-1 rounded-km-selector px-2 py-1 text-sm text-km-base-content transition-colors duration-150 hover:bg-km-base-200 data-[selected]:bg-km-base-200 data-[selected]:text-km-primary data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50">
+        <TreeView.Item class="flex w-full cursor-pointer items-center gap-1 rounded-km-selector px-2 py-1 text-sm text-km-base-content transition-colors duration-150 hover:bg-km-base-200 data-[selected]:bg-km-base-200 data-[selected]:text-km-primary data-[focus-visible]:outline-2 data-[focus-visible]:outline-km-primary data-[focus-visible]:-outline-offset-1 data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50">
           <TreeView.ItemText class="flex-1 select-none pl-6">{node.label}</TreeView.ItemText>
         </TreeView.Item>
       {/if}
