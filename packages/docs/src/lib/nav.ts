@@ -15,6 +15,7 @@ export const componentNav = [
   { label: "Password Input", href: "/components/password-input" },
   { label: "Popover", href: "/components/popover" },
   { label: "QrCode", href: "/components/qr-code" },
+  { label: "RadioGroup", href: "/components/radio-group" },
   { label: "RatingGroup", href: "/components/rating-group" },
   { label: "ScrollArea", href: "/components/scroll-area" },
   { label: "SignaturePad", href: "/components/signature-pad" },
