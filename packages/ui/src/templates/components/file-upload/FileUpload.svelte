@@ -133,7 +133,7 @@
   <FileUpload.ItemGroup class="flex flex-col gap-2">
     <FileUpload.Context>
       {#snippet children(context)}
-        {#each context.acceptedFiles as file (file.name)}
+        {#each context.acceptedFiles as file (`${file.name}-${file.size}-${file.lastModified}`)}
           <FileUpload.Item
             {file}
             class="flex items-center gap-3 rounded-km-field border border-km-base-300 bg-km-base-100 p-3"
