@@ -17,6 +17,7 @@ export const componentNav = [
   { label: "NumberInput", href: "/components/number-input" },
   { label: "Pagination", href: "/components/pagination" },
   { label: "Password Input", href: "/components/password-input" },
+  { label: "PinInput", href: "/components/pin-input" },
   { label: "Popover", href: "/components/popover" },
   { label: "QrCode", href: "/components/qr-code" },
   { label: "RadioGroup", href: "/components/radio-group" },
