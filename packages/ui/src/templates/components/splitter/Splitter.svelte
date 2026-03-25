@@ -43,9 +43,10 @@
   {defaultSize}
   bind:size
   {orientation}
+  {disabled}
   {onResize}
   {onResizeEnd}
-  class="flex h-full w-full {isVertical ? 'flex-col' : ''} {disabled ? 'pointer-events-none opacity-50' : ''} {className ?? ''}"
+  class="flex h-full w-full {isVertical ? 'flex-col' : ''} data-[disabled]:pointer-events-none data-[disabled]:opacity-50 {className ?? ''}"
 >
   {#each panels as panelConfig, i}
     <Splitter.Panel id={panelConfig.id} class="overflow-auto">
@@ -54,7 +55,7 @@
     {#if i < panels.length - 1}
       <Splitter.ResizeTrigger
         id="{panelConfig.id}:{panels[i + 1].id}"
-        aria-label="Resize"
+        aria-label="Resize between {panelConfig.id} and {panels[i + 1].id}"
         class="flex shrink-0 items-center justify-center border-none bg-km-base-200 transition-colors duration-150 hover:bg-km-base-300 focus-visible:outline-2 focus-visible:outline-km-primary {isVertical ? 'h-3 cursor-row-resize' : 'w-3 cursor-col-resize'}"
       >
         <Splitter.ResizeTriggerIndicator class="text-km-muted-content">
