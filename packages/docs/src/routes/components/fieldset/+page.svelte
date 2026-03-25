@@ -82,8 +82,8 @@
 </Fieldset>`}
     >
       <Fieldset legend="Account" disabled>
-        <input class={inputClass} value="janedoe" disabled />
-        <input class={inputClass} value="jane@example.com" disabled />
+        <input class={inputClass} value="janedoe" />
+        <input class={inputClass} value="jane@example.com" />
       </Fieldset>
     </DemoCard>
   </section>

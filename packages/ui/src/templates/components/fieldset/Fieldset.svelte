@@ -41,9 +41,7 @@
     </Fieldset.Legend>
   {/if}
 
-  {#if children}
-    {@render children()}
-  {/if}
+  {@render children?.()}
 
   {#if helperText && !invalid}
     <Fieldset.HelperText class="text-xs text-km-muted-content">
