@@ -74,7 +74,7 @@
         <ChevronDown size={16} />
       </Select.Indicator>
     </Select.Trigger>
-    {#if multiple}
+    {#if value?.length}
       <Select.ClearTrigger class="mr-1.5 flex cursor-pointer items-center justify-center rounded-km-selector border-none bg-transparent p-1 text-km-muted-content transition-colors duration-150 hover:bg-km-muted hover:text-km-base-content">
         <X size={16} />
       </Select.ClearTrigger>
@@ -86,14 +86,18 @@
   <Portal>
     <Select.Positioner class="z-[var(--km-z-dropdown)]">
       <Select.Content class="mt-1 max-h-60 overflow-y-auto rounded-km-box border border-km-base-300 bg-km-base-100 p-1 shadow-km-md">
-        {#each collection.items as item (itemToValue(item))}
-          <Select.Item {item} class="flex cursor-pointer items-center justify-between rounded-km-selector px-3 py-2 text-sm text-km-base-content transition-colors duration-150 data-[highlighted]:bg-km-base-200 data-[state=checked]:text-km-primary">
-            <Select.ItemText>{itemToLabel(item)}</Select.ItemText>
-            <Select.ItemIndicator class="flex items-center text-km-primary">
-              <Check size={14} />
-            </Select.ItemIndicator>
-          </Select.Item>
-        {/each}
+        {#if collection.items.length === 0}
+          <div class="flex items-center justify-center p-3 text-sm text-km-muted-content">No options available</div>
+        {:else}
+          {#each collection.items as item (itemToValue(item))}
+            <Select.Item {item} class="flex cursor-pointer items-center justify-between rounded-km-selector px-3 py-2 text-sm text-km-base-content transition-colors duration-150 data-[highlighted]:bg-km-base-200 data-[state=checked]:text-km-primary">
+              <Select.ItemText>{itemToLabel(item)}</Select.ItemText>
+              <Select.ItemIndicator class="flex items-center text-km-primary">
+                <Check size={14} />
+              </Select.ItemIndicator>
+            </Select.Item>
+          {/each}
+        {/if}
       </Select.Content>
     </Select.Positioner>
   </Portal>
