@@ -27,6 +27,8 @@
     selectOnFocus?: boolean;
     /** Maximum character count */
     maxLength?: number;
+    /** Mark the field as invalid */
+    invalid?: boolean;
     /** Callback when value changes */
     onValueChange?: (details: Editable.ValueChangeDetails) => void;
     /** Additional CSS classes on the root element */
@@ -41,6 +43,7 @@
     name,
     disabled = false,
     readOnly = false,
+    invalid = false,
     activationMode = "focus",
     submitMode = "both",
     autoResize = false,
@@ -58,6 +61,7 @@
   {name}
   {disabled}
   {readOnly}
+  {invalid}
   {activationMode}
   {submitMode}
   {autoResize}
@@ -73,10 +77,10 @@
   <div class="flex items-center gap-1.5">
     <Editable.Area class="relative flex min-w-0 flex-1 items-center">
       <Editable.Input
-        class="w-full rounded-km-field border border-km-primary bg-km-base-100 px-3 py-1.5 text-sm text-km-base-content outline-none ring-2 ring-km-primary/20 placeholder:text-km-muted-content disabled:cursor-not-allowed disabled:opacity-60"
+        class="w-full rounded-km-field border bg-km-base-100 px-3 py-1.5 text-sm text-km-base-content outline-none ring-2 placeholder:text-km-muted-content disabled:cursor-not-allowed disabled:opacity-60 {invalid ? 'border-km-error ring-km-error/20' : 'border-km-primary ring-km-primary/20'}"
       />
       <Editable.Preview
-        class="w-full cursor-text truncate rounded-km-field border border-transparent px-3 py-1.5 text-sm text-km-base-content transition-colors duration-150 hover:bg-km-base-200 data-[placeholder]:text-km-muted-content data-[disabled]:cursor-not-allowed data-[disabled]:opacity-60 data-[readonly]:cursor-default"
+        class="w-full cursor-text truncate rounded-km-field border border-transparent px-3 py-1.5 text-sm text-km-base-content transition-colors duration-150 hover:bg-km-base-200 data-[placeholder-shown]:text-km-muted-content data-[disabled]:cursor-not-allowed data-[disabled]:opacity-60 data-[readonly]:cursor-default"
       />
     </Editable.Area>
 

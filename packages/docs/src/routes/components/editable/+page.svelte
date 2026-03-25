@@ -14,6 +14,7 @@
     { name: "name", type: "string", default: "—", description: "Form field name for native submission" },
     { name: "disabled", type: "boolean", default: "false", description: "Disable the field" },
     { name: "readOnly", type: "boolean", default: "false", description: "Prevent editing" },
+    { name: "invalid", type: "boolean", default: "false", description: "Mark the field as invalid with error styling" },
     { name: "activationMode", type: '"focus" | "dblclick" | "click" | "none"', default: '"focus"', description: "How the user enters edit mode" },
     { name: "submitMode", type: '"enter" | "blur" | "none" | "both"', default: '"both"', description: "What triggers saving the value" },
     { name: "autoResize", type: "boolean", default: "false", description: "Auto-expand input width with content" },
@@ -92,6 +93,16 @@
     >
       <div class="max-w-sm">
         <Editable disabled defaultValue="Can't touch this" />
+      </div>
+    </DemoCard>
+
+    <DemoCard
+      title="Invalid state"
+      description="Set invalid to show error-colored border and ring in edit mode."
+      code={`<Editable invalid label="Username" defaultValue="taken@email.com" />`}
+    >
+      <div class="max-w-sm">
+        <Editable invalid label="Username" defaultValue="taken@email.com" />
       </div>
     </DemoCard>
 
