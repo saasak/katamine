@@ -13,6 +13,7 @@ export const componentNav = [
   { label: "FloatingPanel", href: "/components/floating-panel" },
   { label: "HoverCard", href: "/components/hover-card" },
   { label: "ImageCropper", href: "/components/image-cropper" },
+  { label: "Marquee", href: "/components/marquee" },
   { label: "Menu", href: "/components/menu" },
   { label: "NumberInput", href: "/components/number-input" },
   { label: "Pagination", href: "/components/pagination" },
