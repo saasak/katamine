@@ -52,15 +52,20 @@
   const tour = useTour(() => ({
     steps,
     stepId,
-    closeOnInteractOutside: disabled ? false : closeOnInteractOutside,
-    closeOnEscape: disabled ? false : closeOnEscape,
-    keyboardNavigation: disabled ? false : keyboardNavigation,
-    preventInteraction: disabled ? false : preventInteraction,
+    closeOnInteractOutside,
+    closeOnEscape,
+    keyboardNavigation,
+    preventInteraction,
     spotlightOffset,
     spotlightRadius,
     onStepChange,
     onStatusChange,
   }));
+
+  function start(id?: string) {
+    if (disabled) return;
+    tour().start(id);
+  }
 </script>
 
 <Tour.Root {tour}>
@@ -79,6 +84,7 @@
           </Tour.Arrow>
 
           <Tour.CloseTrigger
+            aria-label="Close tour"
             class="absolute right-2 top-2 flex items-center justify-center rounded-km-selector p-1 text-km-muted-content transition-colors duration-150 hover:bg-km-muted hover:text-km-base-content"
           >
             <X size={14} />
@@ -104,6 +110,6 @@
   </Portal>
 
   {#if children}
-    {@render children({ start: tour().start })}
+    {@render children({ start })}
   {/if}
 </Tour.Root>
