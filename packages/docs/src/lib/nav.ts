@@ -22,6 +22,7 @@ export const componentNav = [
   { label: "Switch", href: "/components/switch" },
   { label: "Tabs", href: "/components/tabs" },
   { label: "TagsInput", href: "/components/tags-input" },
+  { label: "Timer", href: "/components/timer" },
   { label: "Toast", href: "/components/toast" },
   { label: "Toggle", href: "/components/toggle" },
   { label: "Tooltip", href: "/components/tooltip" },
