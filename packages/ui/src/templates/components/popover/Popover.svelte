@@ -62,8 +62,8 @@
 >
   {#if trigger}
     <Popover.Trigger>
-      {#snippet child(triggerProps)}
-        <span {...triggerProps} class="inline-flex">
+      {#snippet asChild(propsFn)}
+        <span {...propsFn()} class="inline-flex">
           {@render trigger()}
         </span>
       {/snippet}
