@@ -11,6 +11,7 @@ export const componentNav = [
   { label: "Field", href: "/components/field" },
   { label: "Fieldset", href: "/components/fieldset" },
   { label: "FloatingPanel", href: "/components/floating-panel" },
+  { label: "HoverCard", href: "/components/hover-card" },
   { label: "ImageCropper", href: "/components/image-cropper" },
   { label: "Menu", href: "/components/menu" },
   { label: "NumberInput", href: "/components/number-input" },
@@ -30,6 +31,7 @@ export const componentNav = [
   { label: "Timer", href: "/components/timer" },
   { label: "Toast", href: "/components/toast" },
   { label: "Toggle", href: "/components/toggle" },
+  { label: "ToggleGroup", href: "/components/toggle-group" },
   { label: "Tooltip", href: "/components/tooltip" },
   { label: "Tour", href: "/components/tour" },
 ];
