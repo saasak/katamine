@@ -54,7 +54,7 @@
 >
   <HoverCard.Trigger>
     {#snippet child(triggerProps)}
-      <span {...triggerProps} class="inline-flex">
+      <span {...triggerProps} class="inline-flex rounded-sm focus-visible:outline-2 focus-visible:outline-km-primary focus-visible:outline-offset-2">
         {@render trigger()}
       </span>
     {/snippet}
