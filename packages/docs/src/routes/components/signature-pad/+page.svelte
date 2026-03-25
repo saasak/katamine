@@ -60,7 +60,11 @@
     <DemoCard
       title="Image preview on draw end"
       description="Export the signature as a PNG data URL when drawing ends."
-      code={`<SignaturePad
+      code={`<script>
+  let previewUrl = $state("");
+<\/script>
+
+<SignaturePad
   onDrawEnd={async (details) => {
     previewUrl = await details.getDataUrl("image/png");
   }}
@@ -94,7 +98,7 @@
     <DemoCard
       title="Read-only"
       description="Displays existing paths without allowing edits."
-      code={`<SignaturePad readOnly={true} defaultPaths={paths} />`}
+      code={`<SignaturePad readOnly={true} />`}
     >
       <div class="max-w-md">
         <SignaturePad readOnly={true} />
@@ -104,7 +108,11 @@
     <DemoCard
       title="Form integration"
       description="Native form submission with the name prop."
-      code={`<form onsubmit={handleSubmit}>
+      code={`<form onsubmit={(e) => {
+  e.preventDefault();
+  const data = new FormData(e.currentTarget);
+  const sig = data.get("signature")?.toString() ?? "(empty)";
+}}>
   <SignaturePad name="signature" />
   <button type="submit">Submit</button>
 </form>`}

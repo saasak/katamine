@@ -63,17 +63,19 @@
     {label}
   </SignaturePad.Label>
 
-  <SignaturePad.Control class="relative h-52 rounded-km-box border border-km-base-300 bg-km-base-100 transition-colors duration-150 data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50">
+  <SignaturePad.Control class="relative h-52 rounded-km-box border border-km-base-300 bg-km-base-100 transition-colors duration-150 data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50 data-[focus]:outline-2 data-[focus]:outline-km-primary data-[focus]:outline-offset-2">
     <SignaturePad.Segment class="h-full w-full" />
     <SignaturePad.Guide class="border-b border-dashed border-km-base-300" />
   </SignaturePad.Control>
 
-  <SignaturePad.ClearTrigger
-    class="inline-flex w-fit cursor-pointer items-center gap-1.5 rounded-km-field border border-km-base-300 bg-km-base-100 px-3 py-1.5 text-sm text-km-muted-content transition-colors duration-150 hover:bg-km-muted hover:text-km-base-content disabled:cursor-not-allowed disabled:opacity-50"
-  >
-    <Eraser size={14} />
-    Clear
-  </SignaturePad.ClearTrigger>
+  {#if !readOnly}
+    <SignaturePad.ClearTrigger
+      class="inline-flex w-fit cursor-pointer items-center gap-1.5 rounded-km-field border border-km-base-300 bg-km-base-100 px-3 py-1.5 text-sm text-km-muted-content transition-colors duration-150 hover:bg-km-muted hover:text-km-base-content disabled:cursor-not-allowed disabled:opacity-50"
+    >
+      <Eraser size={14} />
+      Clear
+    </SignaturePad.ClearTrigger>
+  {/if}
 
   {#if name}
     <SignaturePad.HiddenInput />
