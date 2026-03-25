@@ -29,12 +29,12 @@
     { name: "inline", type: "boolean", default: "false", description: "Render picker inline instead of as a popover" },
     { name: "format", type: '"rgba" | "hsla" | "hsba" | "hexa"', default: "—", description: "Controlled color format" },
     { name: "defaultFormat", type: '"rgba" | "hsla" | "hsba" | "hexa"', default: '"rgba"', description: "Initial color format" },
-    { name: "closeOnSelect", type: "boolean", default: "false", description: "Close popover when a swatch is selected" },
+    { name: "closeOnSelect", type: "boolean", default: "false", description: "Close popover when a swatch is selected. Ignored in inline mode" },
     { name: "presets", type: "string[]", default: "—", description: "Array of preset color hex strings to display as swatches" },
     { name: "onValueChange", type: "(details) => void", default: "—", description: "Callback when color value changes" },
     { name: "onValueChangeEnd", type: "(details) => void", default: "—", description: "Callback when color adjustment completes" },
     { name: "onFormatChange", type: "(details) => void", default: "—", description: "Callback when color format changes" },
-    { name: "onOpenChange", type: "(details) => void", default: "—", description: "Callback when popover open state changes" },
+    { name: "onOpenChange", type: "(details) => void", default: "—", description: "Callback when popover open state changes. Ignored in inline mode" },
     { name: "class", type: "string", default: "—", description: "Additional CSS classes on the root element" },
   ];
 </script>
@@ -78,7 +78,11 @@
     <DemoCard
       title="Inline"
       description="Render the picker inline without a popover trigger."
-      code={`<ColorPicker defaultValue="#10b981" inline={true} />`}
+      code={`<ColorPicker
+  defaultValue="#10b981"
+  inline={true}
+  presets={["#ff0000", "#ff8800", "#ffff00", "#00ff00", "#0088ff", "#0000ff"]}
+/>`}
     >
       <div class="max-w-xs">
         <ColorPicker defaultValue="#10b981" inline={true} {presets} />
