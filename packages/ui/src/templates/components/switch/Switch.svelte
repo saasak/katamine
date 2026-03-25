@@ -54,7 +54,7 @@
   class="inline-flex cursor-pointer items-center gap-2 select-none data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50 {className ?? ''}"
 >
   <Switch.Control
-    class="inline-flex h-6 w-11 shrink-0 items-center rounded-full border-2 border-transparent bg-km-base-300 transition-colors duration-150 data-[state=checked]:bg-km-primary data-[focus]:outline-2 data-[focus]:outline-km-primary data-[focus]:outline-offset-2 data-[invalid]:bg-km-error"
+    class="inline-flex h-6 w-11 shrink-0 items-center rounded-full border-2 border-transparent bg-km-base-300 transition-colors duration-150 data-[state=checked]:bg-km-primary data-[focus]:border-km-primary data-[focus]:outline-2 data-[focus]:outline-km-primary data-[focus]:outline-offset-2 data-[invalid]:border-km-error data-[invalid]:bg-km-error"
   >
     <Switch.Thumb
       class="pointer-events-none block h-5 w-5 rounded-full bg-km-base-100 shadow-km-sm transition-transform duration-150 data-[state=checked]:translate-x-5 data-[state=unchecked]:translate-x-0"
