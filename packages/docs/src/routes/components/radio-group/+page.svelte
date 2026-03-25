@@ -25,6 +25,7 @@
     { name: "label", type: "string", default: "—", description: "Display label for the group" },
     { name: "name", type: "string", default: "—", description: "Form field name for native submission" },
     { name: "disabled", type: "boolean", default: "false", description: "Disable all options" },
+    { name: "invalid", type: "boolean", default: "false", description: "Mark as invalid" },
     { name: "required", type: "boolean", default: "false", description: "Mark as required" },
     { name: "readOnly", type: "boolean", default: "false", description: "Make read-only" },
     { name: "orientation", type: '"horizontal" | "vertical"', default: '"vertical"', description: "Layout orientation of the group" },
@@ -112,6 +113,14 @@
       code={`<RadioGroup label="Fruit" items={fruits} disabled defaultValue="apple" />`}
     >
       <RadioGroup label="Fruit" items={fruits} disabled defaultValue="apple" />
+    </DemoCard>
+
+    <DemoCard
+      title="Invalid"
+      description="Shows error styling when validation fails."
+      code={`<RadioGroup label="Required selection" items={fruits} invalid required />`}
+    >
+      <RadioGroup label="Required selection" items={fruits} invalid required />
     </DemoCard>
 
     <DemoCard

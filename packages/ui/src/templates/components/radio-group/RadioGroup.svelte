@@ -23,6 +23,8 @@
     name?: string;
     /** Disable all options */
     disabled?: boolean;
+    /** Mark as invalid */
+    invalid?: boolean;
     /** Mark as required */
     required?: boolean;
     /** Make read-only */
@@ -42,6 +44,7 @@
     label,
     name,
     disabled = false,
+    invalid = false,
     required = false,
     readOnly = false,
     orientation = "vertical",
@@ -55,6 +58,7 @@
   {defaultValue}
   {name}
   {disabled}
+  {invalid}
   {required}
   {readOnly}
   {orientation}
