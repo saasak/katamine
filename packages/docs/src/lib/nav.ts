@@ -10,6 +10,7 @@ export const componentNav = [
   { label: "Dialog", href: "/components/dialog" },
   { label: "Field", href: "/components/field" },
   { label: "Fieldset", href: "/components/fieldset" },
+  { label: "FileUpload", href: "/components/file-upload" },
   { label: "FloatingPanel", href: "/components/floating-panel" },
   { label: "HoverCard", href: "/components/hover-card" },
   { label: "ImageCropper", href: "/components/image-cropper" },
