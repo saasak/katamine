@@ -131,7 +131,11 @@
     <DemoCard
       title="Form integration"
       description="Native form submission with the name prop."
-      code={`<form onsubmit={handleSubmit}>
+      code={`<form onsubmit={(e) => {
+  e.preventDefault();
+  const data = new FormData(e.currentTarget);
+  const pin = data.get("pin")?.toString();
+}}>
   <PinInput label="Verification" name="pin" />
   <button type="submit">Verify</button>
 </form>`}
