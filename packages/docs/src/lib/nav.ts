@@ -11,6 +11,7 @@ export const componentNav = [
   { label: "Field", href: "/components/field" },
   { label: "Fieldset", href: "/components/fieldset" },
   { label: "FloatingPanel", href: "/components/floating-panel" },
+  { label: "ImageCropper", href: "/components/image-cropper" },
   { label: "Menu", href: "/components/menu" },
   { label: "Pagination", href: "/components/pagination" },
   { label: "Password Input", href: "/components/password-input" },
