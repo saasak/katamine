@@ -11,6 +11,7 @@ export const componentNav = [
   { label: "Fieldset", href: "/components/fieldset" },
   { label: "FloatingPanel", href: "/components/floating-panel" },
   { label: "Menu", href: "/components/menu" },
+  { label: "Pagination", href: "/components/pagination" },
   { label: "Password Input", href: "/components/password-input" },
   { label: "Popover", href: "/components/popover" },
   { label: "QrCode", href: "/components/qr-code" },
