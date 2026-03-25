@@ -29,6 +29,7 @@ export const componentNav = [
   { label: "Select", href: "/components/select" },
   { label: "SignaturePad", href: "/components/signature-pad" },
   { label: "Slider", href: "/components/slider" },
+  { label: "Splitter", href: "/components/splitter" },
   { label: "Steps", href: "/components/steps" },
   { label: "Switch", href: "/components/switch" },
   { label: "Tabs", href: "/components/tabs" },
