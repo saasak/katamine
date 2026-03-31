@@ -1,26 +1,11 @@
 import { Command } from "commander";
 import path from "node:path";
 import * as logger from "../utils/logger.js";
+import { isKatamineInitialized } from "../utils/detect.js";
 import { getComponent, listComponents } from "../registry.js";
-import { fileExists, readFile, writeFile, copyTemplateFiles } from "../utils/fs.js";
+import { fileExists, copyTemplateFiles } from "../utils/fs.js";
 
-interface KatamineConfig {
-  componentDir: string;
-  installedComponents: string[];
-}
-
-function loadConfig(cwd: string): KatamineConfig | null {
-  const configPath = path.join(cwd, ".katamine.json");
-  if (!fileExists(configPath)) return null;
-  return JSON.parse(readFile(configPath));
-}
-
-function saveConfig(cwd: string, config: KatamineConfig) {
-  writeFile(
-    path.join(cwd, ".katamine.json"),
-    JSON.stringify(config, null, 2) + "\n"
-  );
-}
+const COMPONENT_DIR = "src/lib/components";
 
 export const addCommand = new Command("add")
   .description("Add a component to your project")
@@ -29,11 +14,10 @@ export const addCommand = new Command("add")
     logger.intro();
     const cwd = process.cwd();
 
-    // 1. Load config
-    const config = loadConfig(cwd);
-    if (!config) {
+    // 1. Check initialization
+    if (!isKatamineInitialized(cwd)) {
       logger.error(
-        "No .katamine.json found. Run `katamine init` first."
+        "Katamine not initialized. Run `katamine init` first."
       );
       process.exit(1);
     }
@@ -49,7 +33,7 @@ export const addCommand = new Command("add")
     }
 
     // 3. Check if already exists
-    const destDir = path.join(cwd, config.componentDir, componentName);
+    const destDir = path.join(cwd, COMPONENT_DIR, componentName);
     if (fileExists(destDir)) {
       const overwrite = await logger.confirm(
         `${componentName} already exists. Overwrite?`
@@ -62,12 +46,6 @@ export const addCommand = new Command("add")
 
     // 4. Copy files
     copyTemplateFiles(component.files, destDir);
-
-    // 5. Update config
-    if (!config.installedComponents.includes(componentName)) {
-      config.installedComponents.push(componentName);
-      saveConfig(cwd, config);
-    }
 
     const importPath = `$lib/components/${componentName}`;
     logger.success(`Added ${componentName}`);

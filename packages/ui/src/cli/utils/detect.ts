@@ -1,8 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
 
-export type PackageManager = "pnpm" | "npm" | "yarn" | "bun";
-
 export function isSvelteKit(cwd: string): boolean {
   return (
     fs.existsSync(path.join(cwd, "svelte.config.js")) ||
@@ -10,11 +8,8 @@ export function isSvelteKit(cwd: string): boolean {
   );
 }
 
-export function detectPackageManager(cwd: string): PackageManager {
-  if (fs.existsSync(path.join(cwd, "pnpm-lock.yaml"))) return "pnpm";
-  if (fs.existsSync(path.join(cwd, "bun.lockb")) || fs.existsSync(path.join(cwd, "bun.lock"))) return "bun";
-  if (fs.existsSync(path.join(cwd, "yarn.lock"))) return "yarn";
-  return "npm";
+export function isKatamineInitialized(cwd: string): boolean {
+  return fs.existsSync(path.join(cwd, "src/lib/styles/katamine.css"));
 }
 
 export function findAppCss(cwd: string): string | null {

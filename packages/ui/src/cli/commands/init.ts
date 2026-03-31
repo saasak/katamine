@@ -1,9 +1,9 @@
 import { Command } from "commander";
-import { execSync } from "node:child_process";
 import path from "node:path";
+import { detectPackageManager, addDependency } from "nypm";
 import * as logger from "../utils/logger.js";
-import { isSvelteKit, detectPackageManager, findAppCss } from "../utils/detect.js";
-import { writeFile, fileExists, readFile } from "../utils/fs.js";
+import { isSvelteKit, findAppCss } from "../utils/detect.js";
+import { writeFile, readFile } from "../utils/fs.js";
 import { templates } from "../generated/templates.js";
 
 export const initCommand = new Command("init")
@@ -20,26 +20,16 @@ export const initCommand = new Command("init")
       process.exit(1);
     }
 
-    const pm = detectPackageManager(cwd);
-    logger.log(`Detected package manager: ${pm}`);
+    const pm = await detectPackageManager(cwd);
+    logger.log(`Detected package manager: ${pm.name}`);
 
     // 2. Install peer deps
     const s = logger.spinner();
     s.start("Installing dependencies");
-    const installCmd =
-      pm === "npm"
-        ? "npm install"
-        : pm === "yarn"
-          ? "yarn add"
-          : pm === "bun"
-            ? "bun add"
-            : "pnpm add";
 
     try {
-      execSync(`${installCmd} @ark-ui/svelte lucide-svelte`, {
-        cwd,
-        stdio: "pipe",
-      });
+      await addDependency("@ark-ui/svelte", { cwd, packageManager: pm });
+      await addDependency("lucide-svelte", { cwd, packageManager: pm });
       s.stop("Dependencies installed");
     } catch {
       s.stop("Failed to install dependencies");
@@ -78,23 +68,6 @@ export const initCommand = new Command("init")
       logger.warn(
         "No app.css found. Manually add: @import '$lib/styles/katamine.css' to your global CSS."
       );
-    }
-
-    // 5. Write .katamine.json config
-    const configPath = path.join(cwd, ".katamine.json");
-    if (!fileExists(configPath)) {
-      writeFile(
-        configPath,
-        JSON.stringify(
-          {
-            componentDir: "src/lib/components",
-            installedComponents: [],
-          },
-          null,
-          2
-        ) + "\n"
-      );
-      logger.success("Created .katamine.json");
     }
 
     logger.outro("Katamine initialized! Run `katamine add combobox` to add your first component.");
