@@ -1,5 +1,5 @@
 {
-  "name": "@katamine/docs",
+  "name": "@saasak/katamine-docs",
   "private": true,
   "type": "module",
   "scripts": {
