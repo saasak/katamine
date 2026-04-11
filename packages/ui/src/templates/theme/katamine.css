@@ -68,8 +68,8 @@
     --km-error-content: oklch(0.985 0 0);
   }
 
-  /* Dark theme */
-  [data-theme="dark"] {
+  /* Dark mode */
+  [data-mode="dark"] {
     /* Brand */
     --km-primary: oklch(0.685 0.27 275);
     --km-primary-content: oklch(0.145 0 0);

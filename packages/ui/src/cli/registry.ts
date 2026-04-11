@@ -18,3 +18,15 @@ export function listComponents(): string[] {
     .filter((k) => k.startsWith("components/"))
     .map((k) => k.replace("components/", ""));
 }
+
+export function getTheme(name: string): string | null {
+  return templates["theme"]?.[`${name}.css`] ?? null;
+}
+
+export function listThemes(): string[] {
+  const themeFiles = templates["theme"];
+  if (!themeFiles) return [];
+  return Object.keys(themeFiles)
+    .filter((k) => k !== "katamine.css")
+    .map((k) => k.replace(".css", ""));
+}

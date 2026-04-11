@@ -3,6 +3,7 @@
   import { page } from "$app/stores";
   import { Menu } from "lucide-svelte";
   import ThemeToggle from "$lib/components/ThemeToggle.svelte";
+  import ThemeSwitcher from "$lib/components/ThemeSwitcher.svelte";
   import { sidebarState } from "$lib/sidebar-state.svelte";
   import type { Snippet } from "svelte";
 
@@ -39,6 +40,7 @@
       >
         Components
       </a>
+      <ThemeSwitcher />
       <ThemeToggle />
     </div>
   </header>

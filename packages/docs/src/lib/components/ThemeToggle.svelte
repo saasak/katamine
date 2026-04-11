@@ -2,11 +2,11 @@
   import { Sun, Moon } from "lucide-svelte";
   import { browser } from "$app/environment";
 
-  let dark = $state(browser && document.documentElement.dataset.theme === "dark");
+  let dark = $state(browser && document.documentElement.dataset.mode === "dark");
 
   function toggle() {
     dark = !dark;
-    document.documentElement.dataset.theme = dark ? "dark" : "";
+    document.documentElement.dataset.mode = dark ? "dark" : "";
   }
 </script>
 

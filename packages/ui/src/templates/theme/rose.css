@@ -1,0 +1,69 @@
+@layer katamine.theme {
+  [data-theme="rose"] {
+    /* Brand */
+    --km-primary: oklch(0.60 0.22 350);
+    --km-primary-content: oklch(0.985 0 0);
+    --km-secondary: oklch(0.56 0.2 310);
+    --km-secondary-content: oklch(0.985 0 0);
+    --km-accent: oklch(0.65 0.15 15);
+    --km-accent-content: oklch(0.985 0 0);
+
+    /* Neutral */
+    --km-neutral: oklch(0.32 0.015 350);
+    --km-neutral-content: oklch(0.985 0 0);
+
+    /* Base surfaces */
+    --km-base-100: oklch(0.98 0.01 350);
+    --km-base-200: oklch(0.94 0.016 348);
+    --km-base-300: oklch(0.89 0.02 345);
+    --km-base-content: oklch(0.18 0.015 350);
+
+    /* Muted */
+    --km-muted: oklch(0.94 0.012 348);
+    --km-muted-content: oklch(0.52 0.018 350);
+
+    /* Status */
+    --km-info: oklch(0.62 0.2 245);
+    --km-info-content: oklch(0.985 0 0);
+    --km-success: oklch(0.64 0.2 155);
+    --km-success-content: oklch(0.985 0 0);
+    --km-warning: oklch(0.78 0.17 80);
+    --km-warning-content: oklch(0.2 0 0);
+    --km-error: oklch(0.58 0.25 20);
+    --km-error-content: oklch(0.985 0 0);
+  }
+
+  [data-theme="rose"][data-mode="dark"] {
+    /* Brand */
+    --km-primary: oklch(0.68 0.2 350);
+    --km-primary-content: oklch(0.14 0 0);
+    --km-secondary: oklch(0.65 0.18 310);
+    --km-secondary-content: oklch(0.14 0 0);
+    --km-accent: oklch(0.72 0.13 15);
+    --km-accent-content: oklch(0.14 0 0);
+
+    /* Neutral */
+    --km-neutral: oklch(0.80 0.012 350);
+    --km-neutral-content: oklch(0.14 0 0);
+
+    /* Base surfaces */
+    --km-base-100: oklch(0.15 0.015 350);
+    --km-base-200: oklch(0.20 0.018 348);
+    --km-base-300: oklch(0.26 0.02 345);
+    --km-base-content: oklch(0.94 0.01 350);
+
+    /* Muted */
+    --km-muted: oklch(0.26 0.016 348);
+    --km-muted-content: oklch(0.64 0.015 350);
+
+    /* Status */
+    --km-info: oklch(0.65 0.18 245);
+    --km-info-content: oklch(0.985 0 0);
+    --km-success: oklch(0.68 0.18 155);
+    --km-success-content: oklch(0.985 0 0);
+    --km-warning: oklch(0.80 0.16 80);
+    --km-warning-content: oklch(0.2 0 0);
+    --km-error: oklch(0.62 0.24 20);
+    --km-error-content: oklch(0.985 0 0);
+  }
+}
