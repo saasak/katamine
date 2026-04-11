@@ -8,9 +8,9 @@
 @layer katamine.base {
   :root {
     /* Radius — semantic (DaisyUI v5) */
-    --km-radius-selector: 0.25rem; /* checkboxes, toggles, badges */
-    --km-radius-field: 0.375rem; /* inputs, buttons, tabs */
-    --km-radius-box: 0.5rem; /* cards, modals, dropdowns */
+    --km-radius-selector: 0.375rem; /* checkboxes, toggles, badges */
+    --km-radius-field: 0.5rem; /* inputs, buttons, tabs */
+    --km-radius-box: 0.75rem; /* cards, modals, dropdowns */
 
     /* Shadows */
     --km-shadow-sm: 0 1px 2px 0 oklch(0 0 0 / 0.05);
@@ -36,70 +36,70 @@
   /* Light theme (default) */
   :root {
     /* Brand */
-    --km-primary: oklch(0.546 0.245 262.88);
+    --km-primary: oklch(0.585 0.295 275);
     --km-primary-content: oklch(0.985 0 0);
-    --km-secondary: oklch(0.6 0.15 290);
+    --km-secondary: oklch(0.62 0.26 330);
     --km-secondary-content: oklch(0.985 0 0);
-    --km-accent: oklch(0.65 0.18 160);
+    --km-accent: oklch(0.72 0.19 185);
     --km-accent-content: oklch(0.985 0 0);
 
     /* Neutral */
-    --km-neutral: oklch(0.32 0 0);
+    --km-neutral: oklch(0.32 0.01 275);
     --km-neutral-content: oklch(0.985 0 0);
 
     /* Base surfaces (DaisyUI elevation model) */
-    --km-base-100: oklch(0.985 0 0);
-    --km-base-200: oklch(0.93 0 0);
-    --km-base-300: oklch(0.87 0 0);
-    --km-base-content: oklch(0.145 0 0);
+    --km-base-100: oklch(0.985 0.008 275);
+    --km-base-200: oklch(0.935 0.012 275);
+    --km-base-300: oklch(0.88 0.016 275);
+    --km-base-content: oklch(0.145 0.01 275);
 
     /* Muted (ShadCN — subdued/disabled states) */
-    --km-muted: oklch(0.93 0 0);
-    --km-muted-content: oklch(0.556 0 0);
+    --km-muted: oklch(0.935 0.012 275);
+    --km-muted-content: oklch(0.556 0.01 275);
 
     /* Status */
-    --km-info: oklch(0.62 0.19 240);
+    --km-info: oklch(0.635 0.235 245);
     --km-info-content: oklch(0.985 0 0);
-    --km-success: oklch(0.62 0.19 145);
+    --km-success: oklch(0.66 0.24 150);
     --km-success-content: oklch(0.985 0 0);
-    --km-warning: oklch(0.75 0.18 75);
+    --km-warning: oklch(0.78 0.2 80);
     --km-warning-content: oklch(0.2 0 0);
-    --km-error: oklch(0.577 0.245 27.33);
+    --km-error: oklch(0.6 0.27 25);
     --km-error-content: oklch(0.985 0 0);
   }
 
   /* Dark theme */
   [data-theme="dark"] {
     /* Brand */
-    --km-primary: oklch(0.623 0.214 259.53);
+    --km-primary: oklch(0.685 0.27 275);
     --km-primary-content: oklch(0.145 0 0);
-    --km-secondary: oklch(0.65 0.15 290);
+    --km-secondary: oklch(0.7 0.24 330);
     --km-secondary-content: oklch(0.145 0 0);
-    --km-accent: oklch(0.7 0.18 160);
+    --km-accent: oklch(0.76 0.17 185);
     --km-accent-content: oklch(0.145 0 0);
 
     /* Neutral */
-    --km-neutral: oklch(0.82 0 0);
+    --km-neutral: oklch(0.82 0.01 275);
     --km-neutral-content: oklch(0.145 0 0);
 
     /* Base surfaces */
-    --km-base-100: oklch(0.145 0 0);
-    --km-base-200: oklch(0.205 0 0);
-    --km-base-300: oklch(0.269 0 0);
+    --km-base-100: oklch(0.145 0.012 275);
+    --km-base-200: oklch(0.205 0.015 275);
+    --km-base-300: oklch(0.269 0.015 275);
     --km-base-content: oklch(0.985 0 0);
 
     /* Muted */
-    --km-muted: oklch(0.269 0 0);
-    --km-muted-content: oklch(0.708 0 0);
+    --km-muted: oklch(0.269 0.015 275);
+    --km-muted-content: oklch(0.708 0.01 275);
 
     /* Status */
-    --km-info: oklch(0.65 0.17 240);
+    --km-info: oklch(0.67 0.22 245);
     --km-info-content: oklch(0.985 0 0);
-    --km-success: oklch(0.65 0.17 145);
+    --km-success: oklch(0.68 0.22 150);
     --km-success-content: oklch(0.985 0 0);
-    --km-warning: oklch(0.78 0.16 75);
+    --km-warning: oklch(0.8 0.18 80);
     --km-warning-content: oklch(0.2 0 0);
-    --km-error: oklch(0.577 0.245 27.33);
+    --km-error: oklch(0.62 0.26 25);
     --km-error-content: oklch(0.985 0 0);
   }
 }
