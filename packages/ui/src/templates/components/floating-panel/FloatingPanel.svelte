@@ -102,69 +102,64 @@
       <FloatingPanel.Content
         class="flex flex-col overflow-hidden rounded-km-box border border-km-base-300 bg-km-base-100 shadow-km-lg {className ?? ''}"
       >
-        <!-- Header with drag area and controls -->
-        <FloatingPanel.Header
-          class="flex shrink-0 items-center gap-2 border-b border-km-base-300 bg-km-base-200 px-3 py-2"
-        >
-          <FloatingPanel.DragTrigger
-            class="flex flex-1 cursor-grab items-center gap-2 active:cursor-grabbing"
+        <FloatingPanel.DragTrigger class="cursor-grab active:cursor-grabbing">
+          <FloatingPanel.Header
+            class="flex shrink-0 items-center gap-2 border-b border-km-base-300 bg-km-base-200 px-3 py-2"
           >
             {#if title}
-              <FloatingPanel.Title class="select-none text-sm font-medium text-km-base-content">
+              <FloatingPanel.Title class="flex-1 select-none text-sm font-medium text-km-base-content">
                 {title}
               </FloatingPanel.Title>
             {:else}
-              <GripHorizontal size={14} class="text-km-muted-content" />
+              <span class="flex-1">
+                <GripHorizontal size={14} class="text-km-muted-content" />
+              </span>
             {/if}
-          </FloatingPanel.DragTrigger>
 
-          <div class="flex shrink-0 items-center gap-0.5">
-            <FloatingPanel.StageTrigger
-              stage="minimized"
-              aria-label="Minimize"
-              class="flex cursor-pointer items-center justify-center rounded-km-selector p-1 text-km-muted-content transition-colors duration-150 hover:bg-km-muted hover:text-km-base-content"
-            >
-              <Minus size={14} />
-            </FloatingPanel.StageTrigger>
-            <FloatingPanel.StageTrigger
-              stage="maximized"
-              aria-label="Maximize"
-              class="flex cursor-pointer items-center justify-center rounded-km-selector p-1 text-km-muted-content transition-colors duration-150 hover:bg-km-muted hover:text-km-base-content"
-            >
-              <Maximize2 size={14} />
-            </FloatingPanel.StageTrigger>
-            <FloatingPanel.StageTrigger
-              stage="default"
-              aria-label="Restore"
-              class="flex cursor-pointer items-center justify-center rounded-km-selector p-1 text-km-muted-content transition-colors duration-150 hover:bg-km-muted hover:text-km-base-content"
-            >
-              <Minimize2 size={14} />
-            </FloatingPanel.StageTrigger>
-            <FloatingPanel.CloseTrigger
-              aria-label="Close"
-              class="flex cursor-pointer items-center justify-center rounded-km-selector p-1 text-km-muted-content transition-colors duration-150 hover:bg-km-muted hover:text-km-base-content"
-            >
-              <X size={14} />
-            </FloatingPanel.CloseTrigger>
-          </div>
-        </FloatingPanel.Header>
+            <FloatingPanel.Control class="flex shrink-0 items-center gap-0.5">
+              <FloatingPanel.StageTrigger
+                stage="minimized"
+                aria-label="Minimize"
+                class="flex cursor-pointer items-center justify-center rounded-km-selector p-1 text-km-muted-content transition-colors duration-150 hover:bg-km-muted hover:text-km-base-content"
+              >
+                <Minus size={14} />
+              </FloatingPanel.StageTrigger>
+              <FloatingPanel.StageTrigger
+                stage="maximized"
+                aria-label="Maximize"
+                class="flex cursor-pointer items-center justify-center rounded-km-selector p-1 text-km-muted-content transition-colors duration-150 hover:bg-km-muted hover:text-km-base-content"
+              >
+                <Maximize2 size={14} />
+              </FloatingPanel.StageTrigger>
+              <FloatingPanel.StageTrigger
+                stage="default"
+                aria-label="Restore"
+                class="flex cursor-pointer items-center justify-center rounded-km-selector p-1 text-km-muted-content transition-colors duration-150 hover:bg-km-muted hover:text-km-base-content"
+              >
+                <Minimize2 size={14} />
+              </FloatingPanel.StageTrigger>
+              <FloatingPanel.CloseTrigger
+                aria-label="Close"
+                class="flex cursor-pointer items-center justify-center rounded-km-selector p-1 text-km-muted-content transition-colors duration-150 hover:bg-km-muted hover:text-km-base-content"
+              >
+                <X size={14} />
+              </FloatingPanel.CloseTrigger>
+            </FloatingPanel.Control>
+          </FloatingPanel.Header>
+        </FloatingPanel.DragTrigger>
 
-        <!-- Body -->
         <FloatingPanel.Body class="flex-1 overflow-auto p-4 text-sm text-km-base-content">
           {@render children?.()}
         </FloatingPanel.Body>
 
-        <!-- Resize handles (rendered only when resizable) -->
-        {#if resizable}
-          <FloatingPanel.ResizeTrigger axis="n" class="absolute inset-x-2 top-0 h-1 cursor-n-resize" />
-          <FloatingPanel.ResizeTrigger axis="s" class="absolute inset-x-2 bottom-0 h-1 cursor-s-resize" />
-          <FloatingPanel.ResizeTrigger axis="e" class="absolute inset-y-2 right-0 w-1 cursor-e-resize" />
-          <FloatingPanel.ResizeTrigger axis="w" class="absolute inset-y-2 left-0 w-1 cursor-w-resize" />
-          <FloatingPanel.ResizeTrigger axis="ne" class="absolute right-0 top-0 h-2 w-2 cursor-ne-resize" />
-          <FloatingPanel.ResizeTrigger axis="nw" class="absolute left-0 top-0 h-2 w-2 cursor-nw-resize" />
-          <FloatingPanel.ResizeTrigger axis="se" class="absolute bottom-0 right-0 h-2 w-2 cursor-se-resize" />
-          <FloatingPanel.ResizeTrigger axis="sw" class="absolute bottom-0 left-0 h-2 w-2 cursor-sw-resize" />
-        {/if}
+        <FloatingPanel.ResizeTrigger axis="n" class="absolute inset-x-2 top-0 h-1 cursor-n-resize" />
+        <FloatingPanel.ResizeTrigger axis="s" class="absolute inset-x-2 bottom-0 h-1 cursor-s-resize" />
+        <FloatingPanel.ResizeTrigger axis="e" class="absolute inset-y-2 right-0 w-1 cursor-e-resize" />
+        <FloatingPanel.ResizeTrigger axis="w" class="absolute inset-y-2 left-0 w-1 cursor-w-resize" />
+        <FloatingPanel.ResizeTrigger axis="ne" class="absolute right-0 top-0 h-2 w-2 cursor-ne-resize" />
+        <FloatingPanel.ResizeTrigger axis="nw" class="absolute left-0 top-0 h-2 w-2 cursor-nw-resize" />
+        <FloatingPanel.ResizeTrigger axis="se" class="absolute bottom-0 right-0 h-2 w-2 cursor-se-resize" />
+        <FloatingPanel.ResizeTrigger axis="sw" class="absolute bottom-0 left-0 h-2 w-2 cursor-sw-resize" />
       </FloatingPanel.Content>
     </FloatingPanel.Positioner>
   </Portal>

@@ -2,7 +2,6 @@
   import { FloatingPanel } from "$ui/floating-panel";
   import DemoCard from "$lib/components/DemoCard.svelte";
   import PropsTable from "$lib/components/PropsTable.svelte";
-
   let controlledOpen = $state(false);
   let lastPosition = $state("");
   let lastSize = $state("");
