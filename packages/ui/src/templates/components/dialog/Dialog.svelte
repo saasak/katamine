@@ -68,8 +68,8 @@
 >
   {#if trigger}
     <Dialog.Trigger {disabled}>
-      {#snippet child(triggerProps)}
-        <span {...triggerProps} class="inline-flex">
+      {#snippet asChild(props)}
+        <span {...props()} class="inline-flex">
           {@render trigger()}
         </span>
       {/snippet}
