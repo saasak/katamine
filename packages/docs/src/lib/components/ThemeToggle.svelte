@@ -7,6 +7,7 @@
   function toggle() {
     dark = !dark;
     document.documentElement.dataset.mode = dark ? "dark" : "";
+    localStorage.setItem("km-mode", dark ? "dark" : "");
   }
 </script>
 
