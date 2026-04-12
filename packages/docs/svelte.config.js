@@ -8,6 +8,7 @@ const config = {
     adapter: adapter({ fallback: "404.html" }),
     alias: {
       "$ui": path.resolve("../ui/src/templates/components"),
+      "$blocks": path.resolve("../ui/src/templates/blocks"),
       "$theme": path.resolve("../ui/src/templates/theme"),
     },
   },

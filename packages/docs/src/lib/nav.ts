@@ -44,3 +44,7 @@ export const componentNav = [
   { label: "Tour", href: "/components/tour" },
   { label: "TreeView", href: "/components/tree-view" },
 ];
+
+export const blockNav = [
+  { label: "Chat Panel", href: "/blocks/chat-panel" },
+];

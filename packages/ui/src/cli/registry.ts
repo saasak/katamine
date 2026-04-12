@@ -23,6 +23,19 @@ export function getTheme(name: string): string | null {
   return templates["theme"]?.[`${name}.css`] ?? null;
 }
 
+export function getBlock(name: string): ComponentEntry | null {
+  const key = `blocks/${name}`;
+  const files = templates[key];
+  if (!files) return null;
+  return { name, category: key, files };
+}
+
+export function listBlocks(): string[] {
+  return Object.keys(templates)
+    .filter((k) => k.startsWith("blocks/"))
+    .map((k) => k.replace("blocks/", ""));
+}
+
 export function listThemes(): string[] {
   const themeFiles = templates["theme"];
   if (!themeFiles) return [];

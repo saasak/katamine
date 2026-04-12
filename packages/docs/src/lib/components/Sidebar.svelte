@@ -1,6 +1,6 @@
 <script lang="ts">
   import { page } from "$app/stores";
-  import { componentNav } from "$lib/nav";
+  import { componentNav, blockNav } from "$lib/nav";
   import { sidebarState } from "$lib/sidebar-state.svelte";
   import { X } from "lucide-svelte";
 
@@ -14,6 +14,19 @@
   <h2 class="mb-2 px-2 text-xs font-semibold uppercase tracking-wider text-km-muted-content">Components</h2>
   <nav class="flex flex-col gap-0.5">
     {#each componentNav as item}
+      <a
+        href={item.href}
+        class="rounded-km-field px-3 py-1.5 text-sm transition-colors {$page.url.pathname === item.href
+          ? 'bg-km-primary text-km-primary-content'
+          : 'text-km-base-content hover:bg-km-muted'}"
+      >
+        {item.label}
+      </a>
+    {/each}
+  </nav>
+  <h2 class="mb-2 mt-6 px-2 text-xs font-semibold uppercase tracking-wider text-km-muted-content">Blocks</h2>
+  <nav class="flex flex-col gap-0.5">
+    {#each blockNav as item}
       <a
         href={item.href}
         class="rounded-km-field px-3 py-1.5 text-sm transition-colors {$page.url.pathname === item.href
@@ -51,6 +64,20 @@
       </div>
       <nav class="flex flex-col gap-0.5">
         {#each componentNav as item}
+          <a
+            href={item.href}
+            onclick={close}
+            class="rounded-km-field px-3 py-1.5 text-sm transition-colors {$page.url.pathname === item.href
+              ? 'bg-km-primary text-km-primary-content'
+              : 'text-km-base-content hover:bg-km-muted'}"
+          >
+            {item.label}
+          </a>
+        {/each}
+      </nav>
+      <h2 class="mb-2 mt-6 px-2 text-xs font-semibold uppercase tracking-wider text-km-muted-content">Blocks</h2>
+      <nav class="flex flex-col gap-0.5">
+        {#each blockNav as item}
           <a
             href={item.href}
             onclick={close}

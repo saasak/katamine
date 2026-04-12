@@ -9,7 +9,10 @@
 
   let { children }: { children: Snippet } = $props();
 
-  const isComponentPage = $derived($page.url.pathname.startsWith("/components"));
+  const isComponentPage = $derived(
+    $page.url.pathname.startsWith("/components") ||
+    $page.url.pathname.startsWith("/blocks")
+  );
 </script>
 
 <div class="flex min-h-screen flex-col bg-km-base-100 text-km-base-content">
@@ -39,6 +42,12 @@
         class="rounded-km-field px-3 py-1.5 text-sm text-km-base-content no-underline transition-colors hover:bg-km-muted"
       >
         Components
+      </a>
+      <a
+        href="/blocks/chat-panel"
+        class="rounded-km-field px-3 py-1.5 text-sm text-km-base-content no-underline transition-colors hover:bg-km-muted"
+      >
+        Blocks
       </a>
       <ThemeSwitcher />
       <ThemeToggle />
