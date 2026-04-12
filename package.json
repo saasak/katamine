@@ -2,9 +2,9 @@
   "private": true,
   "scripts": {
     "build": "pnpm -r build",
-    "dev:docs": "pnpm --filter @katamine/docs dev",
-    "build:ui": "pnpm --filter katamine build",
-    "build:docs": "pnpm --filter @katamine/docs build"
+    "dev:docs": "pnpm --filter @saasak/katamine-docs dev",
+    "build:ui": "pnpm --filter @saasak/katamine build",
+    "build:docs": "pnpm --filter @saasak/katamine-docs build"
   },
   "pnpm": {
     "onlyBuiltDependencies": ["esbuild"]
