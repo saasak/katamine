@@ -7,23 +7,22 @@
     "katamine": "dist/cli/index.js"
   },
   "scripts": {
-    "prebuild": "tsx scripts/bundle-templates.ts",
-    "build": "tsup",
+    "build": "tsup && cp -r src/templates/theme dist/themes",
     "dev": "tsup --watch"
   },
   "files": [
-    "dist"
+    "dist",
+    "src/templates"
   ],
   "dependencies": {
-    "commander": "^13.1.0",
     "@clack/prompts": "^0.10.0",
+    "commander": "^13.1.0",
     "nypm": "^0.6.0"
   },
   "devDependencies": {
-    "tsup": "^8.4.0",
-    "typescript": "^5.8.2",
     "@types/node": "^22.13.10",
-    "tsx": "^4.19.3"
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.2"
   },
   "keywords": [
     "svelte",
@@ -31,7 +30,7 @@
     "components",
     "ui",
     "ark-ui",
-    "cli"
+    "jsrepo"
   ],
   "license": "MIT",
   "engines": {

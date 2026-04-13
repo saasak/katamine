@@ -1,12 +1,18 @@
 {
   "private": true,
   "scripts": {
-    "build": "pnpm -r build",
+    "build": "pnpm -r build && jsrepo build",
+    "build:registry": "jsrepo build",
     "dev:docs": "pnpm --filter @saasak/katamine-docs dev",
     "build:ui": "pnpm --filter @saasak/katamine build",
     "build:docs": "pnpm --filter @saasak/katamine-docs build"
   },
   "pnpm": {
-    "onlyBuiltDependencies": ["esbuild"]
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  },
+  "devDependencies": {
+    "jsrepo": "^3.7.0"
   }
 }
