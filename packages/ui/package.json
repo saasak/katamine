@@ -1,6 +1,6 @@
 {
   "name": "@saasak/katamine",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Ready-to-use, themed SvelteKit components built on Ark UI/Zag.JS",
   "type": "module",
   "bin": {
