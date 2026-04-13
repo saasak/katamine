@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Katamine is a CLI tool that copies ready-to-use, themed SvelteKit components into user projects. Built on Ark UI/Zag.JS primitives. Like ShadCN but with fully composed components (not just primitives) and DaisyUI-style theming.
+Katamine distributes ready-to-use, themed SvelteKit components via jsrepo. Built on Ark UI/Zag.JS primitives. Like ShadCN but with fully composed components (not just primitives) and DaisyUI-style theming.
 
 **Single user context**: this is for internal products — iterate fast, no backwards-compat concerns.
 
@@ -12,7 +12,7 @@ Katamine is a CLI tool that copies ready-to-use, themed SvelteKit components int
 
 pnpm workspace with two packages:
 
-- **`packages/ui`** (`katamine`) — CLI + component templates. Published to npm.
+- **`packages/ui`** (`katamine`) — jsrepo registry + thin init CLI + component templates. Published to npm.
 - **`packages/docs`** (`@katamine/docs`) — SvelteKit app that imports components directly from ui source via `$ui` and `$theme` aliases.
 
 Root scripts:
@@ -26,10 +26,14 @@ Root scripts:
 - Mise for runtime versions (node, pnpm)
 - Always use cutting-edge dependency versions
 
-## CLI
+## CLI & Component Distribution
+
+Components are distributed via [jsrepo](https://jsrepo.dev). The registry config is `jsrepo.config.ts` at the monorepo root. `registry.json` (generated, committed) is also at the root.
 
 - `npx katamine init` — scaffolds deps, base theme, CSS variables in a SvelteKit project
-- `npx katamine add <component>` — copies component to `src/lib/components/`
+- `npx katamine add <component>` — copies component to user project with auto-resolved deps (wraps jsrepo)
+- `npx jsrepo update` — update previously added components with interactive diffs
+- `pnpm build` in `packages/ui` runs `tsup` (CLI) + `jsrepo build` (registry manifest)
 
 ## Component design principles
 

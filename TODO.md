@@ -1,11 +1,19 @@
 # Todos for this project
 
+## Archi
+
+- [x] Use the common registry pattern and tools (jsrepo)
+- [ ] Publish jsrepo registry (see guide below)
+
 ## Components
 
 - [ ] Cascade Select is coming
 - [x] Vaul (with breakpoints) or responsive modal
+- [ ] Data table
 - [ ] Charts !
 - [ ] Map !
+- [ ] Terminal with Xterm ?
+- [ ] Monaco editor or Nvim
 
 ## Blocks
 
@@ -13,3 +21,4 @@
 - [ ] Sidebars
 - [ ] Top Menu bar with nested (app menu)
 - [x] Chat Bubble
+- [ ] Kanban
