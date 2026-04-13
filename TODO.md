@@ -3,7 +3,7 @@
 ## Archi
 
 - [x] Use the common registry pattern and tools (jsrepo)
-- [ ] Publish jsrepo registry (see guide below)
+- [x] Publish jsrepo registry (github/saasak/katamine)
 
 ## Components
 

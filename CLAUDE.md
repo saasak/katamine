@@ -13,7 +13,7 @@ Katamine distributes ready-to-use, themed SvelteKit components via jsrepo. Built
 pnpm workspace with two packages:
 
 - **`packages/ui`** (`katamine`) — jsrepo registry + thin init CLI + component templates. Published to npm.
-- **`packages/docs`** (`@katamine/docs`) — SvelteKit app that imports components directly from ui source via `$ui` and `$theme` aliases.
+- **`packages/docs`** (`@saasak/katamine-docs`) — SvelteKit app that imports components directly from ui source via `$ui`, `$blocks`, and `$theme` aliases.
 
 Root scripts:
 - `pnpm build` — build all packages
@@ -32,8 +32,9 @@ Components are distributed via [jsrepo](https://jsrepo.dev). The registry config
 
 - `npx katamine init` — scaffolds deps, base theme, CSS variables in a SvelteKit project
 - `npx katamine add <component>` — copies component to user project with auto-resolved deps (wraps jsrepo)
-- `npx jsrepo update` — update previously added components with interactive diffs
-- `pnpm build` in `packages/ui` runs `tsup` (CLI) + `jsrepo build` (registry manifest)
+- `npx katamine update` — update previously added components with interactive diffs (wraps jsrepo)
+- `pnpm build` — builds all packages then runs `jsrepo build` (registry manifest) from root
+- `pnpm build:registry` — rebuild `registry.json` only
 
 ## Component design principles
 
@@ -70,6 +71,7 @@ Tailwind usage: `bg-km-base-100`, `text-km-base-content`, `border-km-base-300`, 
 
 - SvelteKit app at `packages/docs/`
 - Imports raw .svelte components from ui via `$ui` alias (e.g., `import { ComboBox } from "$ui/combobox"`)
+- Imports blocks from ui via `$blocks` alias (e.g., `import { ChatPanel } from "$blocks/chat-panel"`)
 - Imports theme CSS from ui via `$theme` alias in `app.css`
 - Static adapter for deployment
 

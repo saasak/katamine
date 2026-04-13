@@ -24,14 +24,17 @@ Think of it as ShadCN + DaisyUI: copy-paste ownership with batteries included.
 
 ## How it works
 
-Katamine is a **CLI tool**. Components are copied into your project — you own the source.
+Components are distributed via [jsrepo](https://jsrepo.dev) and copied into your project — you own the source.
 
 ```bash
 # Setup Katamine in your SvelteKit project (installs deps, base theme, CSS variables)
-npx katamine init
+npx @saasak/katamine init
 
-# Add components
-npx katamine add combobox
+# Add components (auto-resolves per-component npm deps)
+npx @saasak/katamine add combobox
+
+# Update previously added components with interactive diffs
+npx @saasak/katamine update
 ```
 
 Components land in `src/lib/components/` and can be modified freely.
@@ -62,8 +65,10 @@ DaisyUI-inspired theming system built on CSS variables:
 
 pnpm monorepo:
 
-- **`packages/ui`** — CLI + component templates (published to npm as `katamine`)
+- **`packages/ui`** — jsrepo registry + init/add/update CLI (published to npm as `@saasak/katamine`)
 - **`packages/docs`** — SvelteKit docs site importing components directly from ui source
+- **`jsrepo.config.ts`** — registry configuration (at monorepo root)
+- **`registry.json`** — generated component manifest (committed, auto-rebuilt by CI)
 
 ## Development
 
