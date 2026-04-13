@@ -1,7 +1,9 @@
 import { Command } from "commander";
 import { execSync } from "node:child_process";
+import { detectPackageManager } from "nypm";
 import * as logger from "../utils/logger.js";
 import { isKatamineInitialized } from "../utils/detect.js";
+import { getDlxCommand } from "../utils/pm.js";
 
 const REGISTRY = "github/saasak/katamine";
 
@@ -18,6 +20,9 @@ export const updateCommand = new Command("update")
 			process.exit(1);
 		}
 
+		const pm = await detectPackageManager(cwd);
+		const dlx = getDlxCommand(pm?.name);
+
 		const flags = [
 			opts.overwrite ? "--overwrite" : "",
 			opts.expand ? "--expand" : "",
@@ -26,7 +31,7 @@ export const updateCommand = new Command("update")
 			.filter(Boolean)
 			.join(" ");
 
-		const cmd = `npx jsrepo update ${REGISTRY} ${flags}`.trim();
+		const cmd = `${dlx} jsrepo update ${REGISTRY} ${flags}`.trim();
 
 		try {
 			execSync(cmd, { stdio: "inherit", cwd });
