@@ -5,8 +5,6 @@ import * as logger from "../utils/logger.js";
 import { isKatamineInitialized } from "../utils/detect.js";
 import { getDlxCommand } from "../utils/pm.js";
 
-const REGISTRY = "github/saasak/katamine";
-
 export const addCommand = new Command("add")
 	.description("Add a component to your project")
 	.argument("<components...>", "Component names (e.g., combobox select)")
@@ -23,9 +21,7 @@ export const addCommand = new Command("add")
 		const pm = await detectPackageManager(cwd);
 		const dlx = getDlxCommand(pm?.name);
 
-		const items = components
-			.map((c) => `${REGISTRY}/${c}`)
-			.join(" ");
+		const items = components.join(" ");
 
 		const flags = [
 			"--yes",

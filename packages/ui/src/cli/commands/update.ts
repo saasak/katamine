@@ -5,8 +5,6 @@ import * as logger from "../utils/logger.js";
 import { isKatamineInitialized } from "../utils/detect.js";
 import { getDlxCommand } from "../utils/pm.js";
 
-const REGISTRY = "github/saasak/katamine";
-
 export const updateCommand = new Command("update")
 	.description("Update previously added components with interactive diffs")
 	.option("--overwrite", "Overwrite files without prompting")
@@ -31,7 +29,7 @@ export const updateCommand = new Command("update")
 			.filter(Boolean)
 			.join(" ");
 
-		const cmd = `${dlx} jsrepo update ${REGISTRY} ${flags}`.trim();
+		const cmd = `${dlx} jsrepo update ${flags}`.trim();
 
 		try {
 			execSync(cmd, { stdio: "inherit", cwd });

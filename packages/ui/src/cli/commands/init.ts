@@ -73,7 +73,26 @@ export const initCommand = new Command("init")
 			);
 		}
 
-		// 5. Auto-configure: inject @import into app.css
+		// 5. Create jsrepo.config.ts for component paths
+		const jsrepoConfigPath = path.join(cwd, "jsrepo.config.ts");
+		if (!fs.existsSync(jsrepoConfigPath)) {
+			const jsrepoConfig = `import { defineConfig } from "jsrepo";
+
+export default defineConfig({
+\tpaths: {
+\t\tcomponent: "src/lib/components",
+\t\tblock: "src/lib/blocks",
+\t},
+\tregistries: ["github/saasak/katamine"],
+});
+`;
+			writeFile(jsrepoConfigPath, jsrepoConfig);
+			logger.success("Created jsrepo.config.ts");
+		} else {
+			logger.log("jsrepo.config.ts already exists");
+		}
+
+		// 6. Auto-configure: inject @import into app.css
 		const appCss = findAppCss(cwd);
 		if (appCss) {
 			const appCssPath = path.join(cwd, appCss);
