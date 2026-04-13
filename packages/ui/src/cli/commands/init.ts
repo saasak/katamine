@@ -8,7 +8,7 @@ import { isSvelteKit, findAppCss } from "../utils/detect.js";
 import { writeFile } from "../utils/fs.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const THEMES_DIR = path.resolve(__dirname, "../../themes");
+const THEMES_DIR = path.resolve(__dirname, "../themes");
 
 function listThemeFiles(): string[] {
 	const files = fs.readdirSync(THEMES_DIR).filter((f) => f.endsWith(".css"));
