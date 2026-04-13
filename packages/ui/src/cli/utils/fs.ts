@@ -17,13 +17,3 @@ export function fileExists(filePath: string): boolean {
 export function readFile(filePath: string): string {
   return fs.readFileSync(filePath, "utf-8");
 }
-
-export function copyTemplateFiles(
-  files: Record<string, string>,
-  destDir: string
-) {
-  ensureDir(destDir);
-  for (const [filename, content] of Object.entries(files)) {
-    writeFile(path.join(destDir, filename), content);
-  }
-}

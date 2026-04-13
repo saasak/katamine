@@ -7,7 +7,7 @@ const program = new Command();
 program
   .name("katamine")
   .description(
-    "Copy ready-to-use, themed SvelteKit components into your project"
+    "Ready-to-use, themed SvelteKit components built on Ark UI/Zag.JS"
   )
   .version("0.1.0");
 
