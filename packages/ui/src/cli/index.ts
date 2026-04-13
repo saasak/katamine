@@ -10,7 +10,7 @@ program
   .description(
     "Ready-to-use, themed SvelteKit components built on Ark UI/Zag.JS"
   )
-  .version("1.0.1");
+  .version("1.0.2");
 
 program.addCommand(initCommand);
 program.addCommand(addCommand);

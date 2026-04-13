@@ -23,6 +23,7 @@ export const addCommand = new Command("add")
 			.join(" ");
 
 		const flags = [
+			"--yes",
 			opts.overwrite ? "--overwrite" : "",
 			`--cwd ${cwd}`,
 		]

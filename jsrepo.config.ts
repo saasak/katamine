@@ -55,6 +55,10 @@ export default defineConfig({
 			// Blocks
 			{ name: "chat-panel", type: "block", files: [{ path: "packages/ui/src/templates/blocks/chat-panel" }] },
 		],
+		defaultPaths: {
+			component: "src/lib/components",
+			block: "src/lib/blocks",
+		},
 		outputs: [repository()],
 	},
 	languages: [svelte(), css(), js()],
