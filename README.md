@@ -11,11 +11,11 @@ Think of it as ShadCN + DaisyUI: copy-paste ownership with batteries included.
 ```svelte
 <!-- ShadCN way: 7 primitives to compose yourself -->
 <Combobox.Root>
-  <Combobox.Control>
-    <Combobox.Input />
-    <Combobox.Trigger />
-  </Combobox.Control>
-  <Combobox.Content>...</Combobox.Content>
+	<Combobox.Control>
+		<Combobox.Input />
+		<Combobox.Trigger />
+	</Combobox.Control>
+	<Combobox.Content>...</Combobox.Content>
 </Combobox.Root>
 
 <!-- Katamine way: one component, done -->
@@ -49,7 +49,11 @@ DaisyUI-inspired theming system built on CSS variables:
 - **Full control**: tweak global CSS variables for broad changes, or edit the component source directly for deeper customization
 
 ```html
-<html data-theme="dark">
+<!-- Switch theme -->
+<html data-theme="nord"></html>
+
+<!-- Toggle dark mode -->
+<html data-theme="nord" data-mode="dark"></html>
 ```
 
 ## Component design
@@ -84,6 +88,14 @@ pnpm dev:docs
 
 # Build CLI only
 pnpm build:ui
+
+# Lint & format
+pnpm code:lint
+pnpm code:fix
+
+# Docker (docs site)
+pnpm docker:build
+pnpm docker:run
 ```
 
 ## Stack

@@ -16,14 +16,17 @@ pnpm workspace with two packages:
 - **`packages/docs`** (`@saasak/katamine-docs`) — SvelteKit app that imports components directly from ui source via `$ui`, `$blocks`, and `$theme` aliases.
 
 Root scripts:
+
 - `pnpm build` — build all packages
 - `pnpm dev:docs` — run docs dev server
 - `pnpm build:ui` / `pnpm build:docs` — build individual packages
+- `pnpm code:lint` / `pnpm code:fix` — lint and format
+- `pnpm docker:build` / `pnpm docker:run` — build and run docs Docker image
 
 ## Stack
 
 - SvelteKit (Svelte 5), Ark UI / Zag.JS, Tailwind 4, Vite 8
-- Mise for runtime versions (node, pnpm)
+- Mise for runtime versions (node >=22, pnpm)
 - Always use cutting-edge dependency versions
 
 ## CLI & Component Distribution
@@ -35,6 +38,13 @@ Components are distributed via [jsrepo](https://jsrepo.dev). The registry config
 - `npx katamine update` — update previously added components with interactive diffs (wraps jsrepo)
 - `pnpm build` — builds all packages then runs `jsrepo build` (registry manifest) from root
 - `pnpm build:registry` — rebuild `registry.json` only
+
+## Ark UI Sources
+
+- Component docs: https://ark-ui.com/docs/components/{componentName}
+- Full LLM context: https://ark-ui.com/llms-full.txt
+- Svelte LLM context: https://ark-ui.com/llms-svelte.txt
+- Svelte source: https://github.com/chakra-ui/ark/tree/main/packages/svelte/src/lib/components
 
 ## Component design principles
 
@@ -49,7 +59,8 @@ Components are distributed via [jsrepo](https://jsrepo.dev). The registry config
 ## Theming
 
 - Semantic `--km-*` CSS variables (OKLCH), mapped to Tailwind 4 via `@theme inline`
-- Theme switching via `data-theme` attribute on `<html>`
+- Theme switching via `data-theme` attribute, dark mode via `data-mode="dark"` on `<html>`
+- Default border color set to `--km-base-300` via `--default-border-color` (bare `border` utility is theme-aware)
 - Components use Tailwind utility classes exclusively (no `:global()` CSS blocks)
 
 ### Token structure
@@ -57,6 +68,7 @@ Components are distributed via [jsrepo](https://jsrepo.dev). The registry config
 **Radius** (DaisyUI v5 semantic): `--km-radius-selector` (checkboxes, toggles, badges), `--km-radius-field` (inputs, buttons, tabs), `--km-radius-box` (cards, modals, dropdowns). Tailwind: `rounded-km-selector`, `rounded-km-field`, `rounded-km-box`.
 
 **Colors** (DaisyUI-inspired + ShadCN muted):
+
 - Brand: `primary`, `secondary`, `accent` — each with `-content` suffix for contrast text
 - Neutral: `neutral` / `neutral-content`
 - Base surfaces (elevation model): `base-100` (page bg), `base-200` (elevated), `base-300` (borders/dividers), `base-content` (default text)
@@ -74,6 +86,14 @@ Tailwind usage: `bg-km-base-100`, `text-km-base-content`, `border-km-base-300`, 
 - Imports blocks from ui via `$blocks` alias (e.g., `import { ChatPanel } from "$blocks/chat-panel"`)
 - Imports theme CSS from ui via `$theme` alias in `app.css`
 - Static adapter for deployment
+
+## Svelte Code Quality
+
+- Always run the `svelte-autofixer` MCP tool on any Svelte code you write or modify before presenting it to the user. Keep calling it until no issues or suggestions are returned.
+
+## CI/CD
+
+- GitHub Actions (`.github/workflows/build-registry.yml`) auto-rebuilds `registry.json` on push to `main` when templates or `jsrepo.config.ts` change
 
 ## Testing
 
