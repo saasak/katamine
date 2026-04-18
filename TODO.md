@@ -1,6 +1,7 @@
 # Todos for this project
 
 ## Bugs
+
 - [ ] Drawer is broken when used with bottom
   - [ ] Close button does not work
   - [ ] Snap points handle does not work
