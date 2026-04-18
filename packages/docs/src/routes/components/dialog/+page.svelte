@@ -1,66 +1,134 @@
 <script lang="ts">
-  import { Dialog } from "$ui/dialog";
-  import DemoCard from "$lib/components/DemoCard.svelte";
-  import PropsTable from "$lib/components/PropsTable.svelte";
+	import { Dialog } from '$ui/dialog';
+	import DemoCard from '$lib/components/DemoCard.svelte';
+	import PropsTable from '$lib/components/PropsTable.svelte';
 
-  let controlledOpen = $state(false);
+	let controlledOpen = $state(false);
 
-  const propsData = [
-    { name: "open", type: "boolean", default: "—", description: "Controlled open state. Supports bind:open" },
-    { name: "defaultOpen", type: "boolean", default: "false", description: "Initial open state for uncontrolled mode" },
-    { name: "title", type: "string", default: "—", description: "Dialog heading text" },
-    { name: "description", type: "string", default: "—", description: "Dialog description text below the title" },
-    { name: "modal", type: "boolean", default: "true", description: "Whether the dialog blocks outside interaction" },
-    { name: "closeOnEscape", type: "boolean", default: "true", description: "Close the dialog on Escape key press" },
-    { name: "closeOnInteractOutside", type: "boolean", default: "true", description: "Close when clicking outside the dialog" },
-    { name: "preventScroll", type: "boolean", default: "true", description: "Prevent background scrolling when open" },
-    { name: "role", type: '"dialog" | "alertdialog"', default: '"dialog"', description: "Semantic role for the dialog" },
-    { name: "disabled", type: "boolean", default: "false", description: "Disable the dialog trigger button" },
-    { name: "onOpenChange", type: "(details) => void", default: "—", description: "Callback when open state changes" },
-    { name: "trigger", type: "Snippet", default: "—", description: "Trigger button content (Svelte 5 snippet)" },
-    { name: "footer", type: "Snippet", default: "—", description: "Footer content, e.g. action buttons (Svelte 5 snippet)" },
-    { name: "children", type: "Snippet", default: "—", description: "Dialog body content" },
-    { name: "class", type: "string", default: "—", description: "Additional CSS classes on the content panel" },
-  ];
+	const propsData = [
+		{
+			name: 'open',
+			type: 'boolean',
+			default: '—',
+			description: 'Controlled open state. Supports bind:open'
+		},
+		{
+			name: 'defaultOpen',
+			type: 'boolean',
+			default: 'false',
+			description: 'Initial open state for uncontrolled mode'
+		},
+		{ name: 'title', type: 'string', default: '—', description: 'Dialog heading text' },
+		{
+			name: 'description',
+			type: 'string',
+			default: '—',
+			description: 'Dialog description text below the title'
+		},
+		{
+			name: 'modal',
+			type: 'boolean',
+			default: 'true',
+			description: 'Whether the dialog blocks outside interaction'
+		},
+		{
+			name: 'closeOnEscape',
+			type: 'boolean',
+			default: 'true',
+			description: 'Close the dialog on Escape key press'
+		},
+		{
+			name: 'closeOnInteractOutside',
+			type: 'boolean',
+			default: 'true',
+			description: 'Close when clicking outside the dialog'
+		},
+		{
+			name: 'preventScroll',
+			type: 'boolean',
+			default: 'true',
+			description: 'Prevent background scrolling when open'
+		},
+		{
+			name: 'role',
+			type: '"dialog" | "alertdialog"',
+			default: '"dialog"',
+			description: 'Semantic role for the dialog'
+		},
+		{
+			name: 'disabled',
+			type: 'boolean',
+			default: 'false',
+			description: 'Disable the dialog trigger button'
+		},
+		{
+			name: 'onOpenChange',
+			type: '(details) => void',
+			default: '—',
+			description: 'Callback when open state changes'
+		},
+		{
+			name: 'trigger',
+			type: 'Snippet',
+			default: '—',
+			description: 'Trigger button content (Svelte 5 snippet)'
+		},
+		{
+			name: 'footer',
+			type: 'Snippet',
+			default: '—',
+			description: 'Footer content, e.g. action buttons (Svelte 5 snippet)'
+		},
+		{ name: 'children', type: 'Snippet', default: '—', description: 'Dialog body content' },
+		{
+			name: 'class',
+			type: 'string',
+			default: '—',
+			description: 'Additional CSS classes on the content panel'
+		}
+	];
 </script>
 
 <div class="space-y-8">
-  <!-- Header -->
-  <div>
-    <h1 class="text-3xl font-bold">Dialog</h1>
-    <p class="mt-2 text-km-muted-content">
-      Modal window appearing above the main content. Built on Ark UI with focus trapping, backdrop, and keyboard support.
-    </p>
-  </div>
+	<!-- Header -->
+	<div>
+		<h1 class="text-3xl font-bold">Dialog</h1>
+		<p class="text-km-muted-content mt-2">
+			Modal window appearing above the main content. Built on Ark UI with focus trapping, backdrop,
+			and keyboard support.
+		</p>
+	</div>
 
-  <!-- Demos -->
-  <section class="space-y-4">
-    <h2 class="text-xl font-semibold">Examples</h2>
+	<!-- Demos -->
+	<section class="space-y-4">
+		<h2 class="text-xl font-semibold">Examples</h2>
 
-    <DemoCard
-      title="Basic"
-      description="A simple dialog with a title, description, and body content."
-      code={`<Dialog title="Welcome" description="This is a basic dialog.">
+		<DemoCard
+			title="Basic"
+			description="A simple dialog with a title, description, and body content."
+			code={`<Dialog title="Welcome" description="This is a basic dialog.">
   {#snippet trigger()}
     <button class="btn">Open Dialog</button>
   {/snippet}
   <p>Hello from inside the dialog!</p>
 </Dialog>`}
-    >
-      <Dialog title="Welcome" description="This is a basic dialog.">
-        {#snippet trigger()}
-          <button class="rounded-km-field bg-km-primary px-4 py-2 text-sm font-medium text-km-primary-content transition-colors hover:opacity-90">
-            Open Dialog
-          </button>
-        {/snippet}
-        <p class="text-sm text-km-base-content">Hello from inside the dialog!</p>
-      </Dialog>
-    </DemoCard>
+		>
+			<Dialog title="Welcome" description="This is a basic dialog.">
+				{#snippet trigger()}
+					<button
+						class="rounded-km-field bg-km-primary text-km-primary-content px-4 py-2 text-sm font-medium transition-colors hover:opacity-90"
+					>
+						Open Dialog
+					</button>
+				{/snippet}
+				<p class="text-km-base-content text-sm">Hello from inside the dialog!</p>
+			</Dialog>
+		</DemoCard>
 
-    <DemoCard
-      title="With footer actions"
-      description="Dialog with a footer containing action buttons."
-      code={`<Dialog title="Confirm action" description="Are you sure you want to proceed?">
+		<DemoCard
+			title="With footer actions"
+			description="Dialog with a footer containing action buttons."
+			code={`<Dialog title="Confirm action" description="Are you sure you want to proceed?">
   {#snippet trigger()}
     <button class="btn">Confirm</button>
   {/snippet}
@@ -70,29 +138,35 @@
     <button class="btn-primary">Confirm</button>
   {/snippet}
 </Dialog>`}
-    >
-      <Dialog title="Confirm action" description="Are you sure you want to proceed?">
-        {#snippet trigger()}
-          <button class="rounded-km-field bg-km-primary px-4 py-2 text-sm font-medium text-km-primary-content transition-colors hover:opacity-90">
-            Confirm
-          </button>
-        {/snippet}
-        <p class="text-sm text-km-base-content">This action cannot be undone.</p>
-        {#snippet footer()}
-          <button class="rounded-km-field border border-km-base-300 bg-km-base-100 px-4 py-2 text-sm font-medium text-km-base-content transition-colors hover:bg-km-muted">
-            Cancel
-          </button>
-          <button class="rounded-km-field bg-km-primary px-4 py-2 text-sm font-medium text-km-primary-content transition-colors hover:opacity-90">
-            Confirm
-          </button>
-        {/snippet}
-      </Dialog>
-    </DemoCard>
+		>
+			<Dialog title="Confirm action" description="Are you sure you want to proceed?">
+				{#snippet trigger()}
+					<button
+						class="rounded-km-field bg-km-primary text-km-primary-content px-4 py-2 text-sm font-medium transition-colors hover:opacity-90"
+					>
+						Confirm
+					</button>
+				{/snippet}
+				<p class="text-km-base-content text-sm">This action cannot be undone.</p>
+				{#snippet footer()}
+					<button
+						class="rounded-km-field border-km-base-300 bg-km-base-100 text-km-base-content hover:bg-km-muted border px-4 py-2 text-sm font-medium transition-colors"
+					>
+						Cancel
+					</button>
+					<button
+						class="rounded-km-field bg-km-primary text-km-primary-content px-4 py-2 text-sm font-medium transition-colors hover:opacity-90"
+					>
+						Confirm
+					</button>
+				{/snippet}
+			</Dialog>
+		</DemoCard>
 
-    <DemoCard
-      title="Alert dialog"
-      description='Uses role="alertdialog" for critical actions that require acknowledgement.'
-      code={`<Dialog
+		<DemoCard
+			title="Alert dialog"
+			description="Uses role=&quot;alertdialog&quot; for critical actions that require acknowledgement."
+			code={`<Dialog
   title="Delete item"
   description="This will permanently delete the item."
   role="alertdialog"
@@ -107,84 +181,95 @@
     <button class="btn-danger">Delete</button>
   {/snippet}
 </Dialog>`}
-    >
-      <Dialog
-        title="Delete item"
-        description="This will permanently delete the item."
-        role="alertdialog"
-        closeOnInteractOutside={false}
-      >
-        {#snippet trigger()}
-          <button class="rounded-km-field bg-km-error px-4 py-2 text-sm font-medium text-km-error-content transition-colors hover:opacity-90">
-            Delete
-          </button>
-        {/snippet}
-        <p class="text-sm text-km-base-content">Are you absolutely sure? This cannot be reversed.</p>
-        {#snippet footer()}
-          <button class="rounded-km-field border border-km-base-300 bg-km-base-100 px-4 py-2 text-sm font-medium text-km-base-content transition-colors hover:bg-km-muted">
-            Cancel
-          </button>
-          <button class="rounded-km-field bg-km-error px-4 py-2 text-sm font-medium text-km-error-content transition-colors hover:opacity-90">
-            Delete
-          </button>
-        {/snippet}
-      </Dialog>
-    </DemoCard>
+		>
+			<Dialog
+				title="Delete item"
+				description="This will permanently delete the item."
+				role="alertdialog"
+				closeOnInteractOutside={false}
+			>
+				{#snippet trigger()}
+					<button
+						class="rounded-km-field bg-km-error text-km-error-content px-4 py-2 text-sm font-medium transition-colors hover:opacity-90"
+					>
+						Delete
+					</button>
+				{/snippet}
+				<p class="text-km-base-content text-sm">
+					Are you absolutely sure? This cannot be reversed.
+				</p>
+				{#snippet footer()}
+					<button
+						class="rounded-km-field border-km-base-300 bg-km-base-100 text-km-base-content hover:bg-km-muted border px-4 py-2 text-sm font-medium transition-colors"
+					>
+						Cancel
+					</button>
+					<button
+						class="rounded-km-field bg-km-error text-km-error-content px-4 py-2 text-sm font-medium transition-colors hover:opacity-90"
+					>
+						Delete
+					</button>
+				{/snippet}
+			</Dialog>
+		</DemoCard>
 
-    <DemoCard
-      title="Controlled"
-      description="Programmatically control the open state with bind:open."
-      code={`<script>
-  let open = $state(false);
-</script>
-<button onclick={() => open = true}>Open externally</button>
+		<DemoCard
+			title="Controlled"
+			description="Programmatically control the open state with bind:open."
+			code={`<button onclick={() => open = true}>Open externally</button>
 <Dialog bind:open title="Controlled Dialog">
   <p>Opened via external state.</p>
 </Dialog>`}
-    >
-      <div class="flex items-center gap-3">
-        <button
-          onclick={() => controlledOpen = true}
-          class="rounded-km-field bg-km-primary px-4 py-2 text-sm font-medium text-km-primary-content transition-colors hover:opacity-90"
-        >
-          Open externally
-        </button>
-        <span class="text-sm text-km-muted-content">
-          State: {controlledOpen ? "open" : "closed"}
-        </span>
-      </div>
-      <Dialog bind:open={controlledOpen} title="Controlled Dialog" description="This dialog is controlled via bind:open.">
-        <p class="text-sm text-km-base-content">Opened via external state. Close me with the X button or Escape key.</p>
-      </Dialog>
-    </DemoCard>
+		>
+			<div class="flex items-center gap-3">
+				<button
+					onclick={() => (controlledOpen = true)}
+					class="rounded-km-field bg-km-primary text-km-primary-content px-4 py-2 text-sm font-medium transition-colors hover:opacity-90"
+				>
+					Open externally
+				</button>
+				<span class="text-km-muted-content text-sm">
+					State: {controlledOpen ? 'open' : 'closed'}
+				</span>
+			</div>
+			<Dialog
+				bind:open={controlledOpen}
+				title="Controlled Dialog"
+				description="This dialog is controlled via bind:open."
+			>
+				<p class="text-km-base-content text-sm">
+					Opened via external state. Close me with the X button or Escape key.
+				</p>
+			</Dialog>
+		</DemoCard>
 
-    <DemoCard
-      title="Disabled trigger"
-      description="The trigger button is disabled, preventing the dialog from opening."
-      code={`<Dialog title="Disabled" disabled={true}>
+		<DemoCard
+			title="Disabled trigger"
+			description="The trigger button is disabled, preventing the dialog from opening."
+			code={`<Dialog title="Disabled" disabled={true}>
   {#snippet trigger()}
     <button class="btn" disabled>Can't open</button>
   {/snippet}
   <p>You shouldn't see this.</p>
 </Dialog>`}
-    >
-      <Dialog title="Disabled" disabled={true}>
-        {#snippet trigger()}
-          <button
-            disabled
-            class="rounded-km-field bg-km-primary px-4 py-2 text-sm font-medium text-km-primary-content opacity-50 cursor-not-allowed"
-          >
-            Can't open
-          </button>
-        {/snippet}
-        <p class="text-sm text-km-base-content">You shouldn't see this.</p>
-      </Dialog>
-    </DemoCard>
-  </section>
+		>
+			<Dialog title="Disabled" disabled={true}>
+				{#snippet trigger()}
+					<button
+						disabled
+						class="rounded-km-field bg-km-primary text-km-primary-content cursor-not-allowed px-4 py-2 text-sm font-medium opacity-50"
+					>
+						Can't open
+					</button>
+				{/snippet}
+				<p class="text-km-base-content text-sm">You shouldn't see this.</p>
+			</Dialog>
+		</DemoCard>
+	</section>
 
-  <!-- Props table -->
-  <section class="space-y-4">
-    <h2 class="text-xl font-semibold">Props</h2>
-    <PropsTable items={propsData} />
-  </section>
+	<!-- Props table -->
+	<section class="space-y-4">
+		<h2 class="text-xl font-semibold">Props</h2>
+		<PropsTable items={propsData} />
+	</section>
 </div>

@@ -1,1 +1,1 @@
-export { default as FloatingPanel } from "./FloatingPanel.svelte";
+export { default as FloatingPanel } from './FloatingPanel.svelte';

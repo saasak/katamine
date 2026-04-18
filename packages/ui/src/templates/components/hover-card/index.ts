@@ -1,1 +1,1 @@
-export { default as HoverCard } from "./HoverCard.svelte";
+export { default as HoverCard } from './HoverCard.svelte';

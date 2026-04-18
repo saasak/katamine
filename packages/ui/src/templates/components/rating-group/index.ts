@@ -1,1 +1,1 @@
-export { default as RatingGroup } from "./RatingGroup.svelte";
+export { default as RatingGroup } from './RatingGroup.svelte';

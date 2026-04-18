@@ -1,48 +1,48 @@
 <script lang="ts">
-  import type { Snippet } from "svelte";
+	import type { Snippet } from 'svelte';
 
-  let {
-    title,
-    description,
-    code,
-    children,
-  }: {
-    title: string;
-    description?: string;
-    code?: string;
-    children: Snippet;
-  } = $props();
+	let {
+		title,
+		description,
+		code,
+		children
+	}: {
+		title: string;
+		description?: string;
+		code?: string;
+		children: Snippet;
+	} = $props();
 
-  let showCode = $state(false);
+	let showCode = $state(false);
 </script>
 
-<div class="rounded-km-box border border-km-base-300">
-  <div class="border-b border-km-base-300 px-4 py-3">
-    <div class="flex items-center justify-between">
-      <div>
-        <h3 class="font-semibold text-km-base-content">{title}</h3>
-        {#if description}
-          <p class="mt-1 text-sm text-km-muted-content">{description}</p>
-        {/if}
-      </div>
-      {#if code}
-        <button
-          onclick={() => (showCode = !showCode)}
-          class="rounded-km-field px-3 py-1.5 text-xs font-medium text-km-muted-content transition-colors hover:bg-km-muted hover:text-km-base-content"
-        >
-          {showCode ? "Hide code" : "Show code"}
-        </button>
-      {/if}
-    </div>
-  </div>
+<div class="rounded-km-box border-km-base-300 border">
+	<div class="border-km-base-300 border-b px-4 py-3">
+		<div class="flex items-center justify-between">
+			<div>
+				<h3 class="text-km-base-content font-semibold">{title}</h3>
+				{#if description}
+					<p class="text-km-muted-content mt-1 text-sm">{description}</p>
+				{/if}
+			</div>
+			{#if code}
+				<button
+					onclick={() => (showCode = !showCode)}
+					class="rounded-km-field text-km-muted-content hover:bg-km-muted hover:text-km-base-content px-3 py-1.5 text-xs font-medium transition-colors"
+				>
+					{showCode ? 'Hide code' : 'Show code'}
+				</button>
+			{/if}
+		</div>
+	</div>
 
-  <div class="p-4">
-    {@render children()}
-  </div>
+	<div class="p-4">
+		{@render children()}
+	</div>
 
-  {#if code && showCode}
-    <div class="border-t border-km-base-300">
-      <pre class="overflow-x-auto bg-km-base-200 p-4 font-mono text-sm">{code}</pre>
-    </div>
-  {/if}
+	{#if code && showCode}
+		<div class="border-km-base-300 border-t">
+			<pre class="bg-km-base-200 overflow-x-auto p-4 font-mono text-sm">{code}</pre>
+		</div>
+	{/if}
 </div>

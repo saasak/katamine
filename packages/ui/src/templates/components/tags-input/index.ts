@@ -1,1 +1,1 @@
-export { default as TagsInput } from "./TagsInput.svelte";
+export { default as TagsInput } from './TagsInput.svelte';

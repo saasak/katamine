@@ -1,42 +1,42 @@
-import * as p from "@clack/prompts";
+import * as p from '@clack/prompts';
 
 export function intro() {
-  p.intro("katamine");
+	p.intro('katamine');
 }
 
 export function outro(message: string) {
-  p.outro(message);
+	p.outro(message);
 }
 
 export function cancel(message: string) {
-  p.cancel(message);
+	p.cancel(message);
 }
 
 export async function confirm(message: string): Promise<boolean> {
-  const result = await p.confirm({ message });
-  if (p.isCancel(result)) {
-    cancel("Operation cancelled.");
-    process.exit(0);
-  }
-  return result;
+	const result = await p.confirm({ message });
+	if (p.isCancel(result)) {
+		cancel('Operation cancelled.');
+		process.exit(0);
+	}
+	return result;
 }
 
 export function spinner() {
-  return p.spinner();
+	return p.spinner();
 }
 
 export function log(message: string) {
-  p.log.info(message);
+	p.log.info(message);
 }
 
 export function success(message: string) {
-  p.log.success(message);
+	p.log.success(message);
 }
 
 export function warn(message: string) {
-  p.log.warn(message);
+	p.log.warn(message);
 }
 
 export function error(message: string) {
-  p.log.error(message);
+	p.log.error(message);
 }

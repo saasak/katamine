@@ -1,1 +1,1 @@
-export { default as ImageCropper } from "./ImageCropper.svelte";
+export { default as ImageCropper } from './ImageCropper.svelte';

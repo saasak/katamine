@@ -1,1 +1,1 @@
-export { default as Tour } from "./Tour.svelte";
+export { default as Tour } from './Tour.svelte';
