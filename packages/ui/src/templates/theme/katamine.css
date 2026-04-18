@@ -6,145 +6,146 @@
 @layer katamine.base, katamine.theme;
 
 @layer katamine.base {
-  :root {
-    /* Radius — semantic (DaisyUI v5) */
-    --km-radius-selector: 0.375rem; /* checkboxes, toggles, badges */
-    --km-radius-field: 0.5rem; /* inputs, buttons, tabs */
-    --km-radius-box: 0.75rem; /* cards, modals, dropdowns */
+	:root {
+		/* Radius — semantic (DaisyUI v5) */
+		--km-radius-selector: 0.375rem; /* checkboxes, toggles, badges */
+		--km-radius-field: 0.5rem; /* inputs, buttons, tabs */
+		--km-radius-box: 0.75rem; /* cards, modals, dropdowns */
 
-    /* Shadows */
-    --km-shadow-sm: 0 1px 2px 0 oklch(0 0 0 / 0.05);
-    --km-shadow-md: 0 4px 6px -1px oklch(0 0 0 / 0.1),
-      0 2px 4px -2px oklch(0 0 0 / 0.1);
-    --km-shadow-lg: 0 10px 15px -3px oklch(0 0 0 / 0.1),
-      0 4px 6px -4px oklch(0 0 0 / 0.1);
+		/* Shadows */
+		--km-shadow-sm: 0 1px 2px 0 oklch(0 0 0 / 0.05);
+		--km-shadow-md: 0 4px 6px -1px oklch(0 0 0 / 0.1), 0 2px 4px -2px oklch(0 0 0 / 0.1);
+		--km-shadow-lg: 0 10px 15px -3px oklch(0 0 0 / 0.1), 0 4px 6px -4px oklch(0 0 0 / 0.1);
 
-    /* Transitions */
-    --km-transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-    --km-transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
-    --km-transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+		/* Transitions */
+		--km-transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+		--km-transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+		--km-transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
 
-    /* Z-index */
-    --km-z-dropdown: 50;
-    --km-z-modal: 100;
-    --km-z-popover: 40;
-    --km-z-tooltip: 60;
-  }
+		/* Z-index */
+		--km-z-dropdown: 50;
+		--km-z-modal: 100;
+		--km-z-popover: 40;
+		--km-z-tooltip: 60;
+	}
 }
 
 @layer katamine.theme {
-  /* Light theme (default) */
-  :root {
-    /* Brand */
-    --km-primary: oklch(0.585 0.295 275);
-    --km-primary-content: oklch(0.985 0 0);
-    --km-secondary: oklch(0.62 0.26 330);
-    --km-secondary-content: oklch(0.985 0 0);
-    --km-accent: oklch(0.72 0.19 185);
-    --km-accent-content: oklch(0.985 0 0);
+	/* Light theme (default) */
+	:root {
+		/* Brand */
+		--km-primary: oklch(0.585 0.295 275);
+		--km-primary-content: oklch(0.985 0 0);
+		--km-secondary: oklch(0.62 0.26 330);
+		--km-secondary-content: oklch(0.985 0 0);
+		--km-accent: oklch(0.72 0.19 185);
+		--km-accent-content: oklch(0.985 0 0);
 
-    /* Neutral */
-    --km-neutral: oklch(0.32 0.01 275);
-    --km-neutral-content: oklch(0.985 0 0);
+		/* Neutral */
+		--km-neutral: oklch(0.32 0.01 275);
+		--km-neutral-content: oklch(0.985 0 0);
 
-    /* Base surfaces (DaisyUI elevation model) */
-    --km-base-100: oklch(0.985 0.008 275);
-    --km-base-200: oklch(0.935 0.012 275);
-    --km-base-300: oklch(0.88 0.016 275);
-    --km-base-content: oklch(0.145 0.01 275);
+		/* Base surfaces (DaisyUI elevation model) */
+		--km-base-100: oklch(0.985 0.008 275);
+		--km-base-200: oklch(0.935 0.012 275);
+		--km-base-300: oklch(0.88 0.016 275);
+		--km-base-content: oklch(0.145 0.01 275);
 
-    /* Muted (ShadCN — subdued/disabled states) */
-    --km-muted: oklch(0.935 0.012 275);
-    --km-muted-content: oklch(0.556 0.01 275);
+		/* Muted (ShadCN — subdued/disabled states) */
+		--km-muted: oklch(0.935 0.012 275);
+		--km-muted-content: oklch(0.556 0.01 275);
 
-    /* Status */
-    --km-info: oklch(0.635 0.235 245);
-    --km-info-content: oklch(0.985 0 0);
-    --km-success: oklch(0.66 0.24 150);
-    --km-success-content: oklch(0.985 0 0);
-    --km-warning: oklch(0.78 0.2 80);
-    --km-warning-content: oklch(0.2 0 0);
-    --km-error: oklch(0.6 0.27 25);
-    --km-error-content: oklch(0.985 0 0);
-  }
+		/* Status */
+		--km-info: oklch(0.635 0.235 245);
+		--km-info-content: oklch(0.985 0 0);
+		--km-success: oklch(0.66 0.24 150);
+		--km-success-content: oklch(0.985 0 0);
+		--km-warning: oklch(0.78 0.2 80);
+		--km-warning-content: oklch(0.2 0 0);
+		--km-error: oklch(0.6 0.27 25);
+		--km-error-content: oklch(0.985 0 0);
+	}
 
-  /* Dark mode */
-  [data-mode="dark"] {
-    /* Brand */
-    --km-primary: oklch(0.685 0.27 275);
-    --km-primary-content: oklch(0.145 0 0);
-    --km-secondary: oklch(0.7 0.24 330);
-    --km-secondary-content: oklch(0.145 0 0);
-    --km-accent: oklch(0.76 0.17 185);
-    --km-accent-content: oklch(0.145 0 0);
+	/* Dark mode */
+	[data-mode='dark'] {
+		/* Brand */
+		--km-primary: oklch(0.685 0.27 275);
+		--km-primary-content: oklch(0.145 0 0);
+		--km-secondary: oklch(0.7 0.24 330);
+		--km-secondary-content: oklch(0.145 0 0);
+		--km-accent: oklch(0.76 0.17 185);
+		--km-accent-content: oklch(0.145 0 0);
 
-    /* Neutral */
-    --km-neutral: oklch(0.82 0.01 275);
-    --km-neutral-content: oklch(0.145 0 0);
+		/* Neutral */
+		--km-neutral: oklch(0.82 0.01 275);
+		--km-neutral-content: oklch(0.145 0 0);
 
-    /* Base surfaces */
-    --km-base-100: oklch(0.145 0.012 275);
-    --km-base-200: oklch(0.205 0.015 275);
-    --km-base-300: oklch(0.269 0.015 275);
-    --km-base-content: oklch(0.985 0 0);
+		/* Base surfaces */
+		--km-base-100: oklch(0.145 0.012 275);
+		--km-base-200: oklch(0.205 0.015 275);
+		--km-base-300: oklch(0.269 0.015 275);
+		--km-base-content: oklch(0.985 0 0);
 
-    /* Muted */
-    --km-muted: oklch(0.269 0.015 275);
-    --km-muted-content: oklch(0.708 0.01 275);
+		/* Muted */
+		--km-muted: oklch(0.269 0.015 275);
+		--km-muted-content: oklch(0.708 0.01 275);
 
-    /* Status */
-    --km-info: oklch(0.67 0.22 245);
-    --km-info-content: oklch(0.985 0 0);
-    --km-success: oklch(0.68 0.22 150);
-    --km-success-content: oklch(0.985 0 0);
-    --km-warning: oklch(0.8 0.18 80);
-    --km-warning-content: oklch(0.2 0 0);
-    --km-error: oklch(0.62 0.26 25);
-    --km-error-content: oklch(0.985 0 0);
-  }
+		/* Status */
+		--km-info: oklch(0.67 0.22 245);
+		--km-info-content: oklch(0.985 0 0);
+		--km-success: oklch(0.68 0.22 150);
+		--km-success-content: oklch(0.985 0 0);
+		--km-warning: oklch(0.8 0.18 80);
+		--km-warning-content: oklch(0.2 0 0);
+		--km-error: oklch(0.62 0.26 25);
+		--km-error-content: oklch(0.985 0 0);
+	}
 }
 
 /* Tailwind 4 @theme mapping */
 @theme inline {
-  /* Brand */
-  --color-km-primary: var(--km-primary);
-  --color-km-primary-content: var(--km-primary-content);
-  --color-km-secondary: var(--km-secondary);
-  --color-km-secondary-content: var(--km-secondary-content);
-  --color-km-accent: var(--km-accent);
-  --color-km-accent-content: var(--km-accent-content);
+	/* Brand */
+	--color-km-primary: var(--km-primary);
+	--color-km-primary-content: var(--km-primary-content);
+	--color-km-secondary: var(--km-secondary);
+	--color-km-secondary-content: var(--km-secondary-content);
+	--color-km-accent: var(--km-accent);
+	--color-km-accent-content: var(--km-accent-content);
 
-  /* Neutral */
-  --color-km-neutral: var(--km-neutral);
-  --color-km-neutral-content: var(--km-neutral-content);
+	/* Neutral */
+	--color-km-neutral: var(--km-neutral);
+	--color-km-neutral-content: var(--km-neutral-content);
 
-  /* Base surfaces */
-  --color-km-base-100: var(--km-base-100);
-  --color-km-base-200: var(--km-base-200);
-  --color-km-base-300: var(--km-base-300);
-  --color-km-base-content: var(--km-base-content);
+	/* Base surfaces */
+	--color-km-base-100: var(--km-base-100);
+	--color-km-base-200: var(--km-base-200);
+	--color-km-base-300: var(--km-base-300);
+	--color-km-base-content: var(--km-base-content);
 
-  /* Muted */
-  --color-km-muted: var(--km-muted);
-  --color-km-muted-content: var(--km-muted-content);
+	/* Muted */
+	--color-km-muted: var(--km-muted);
+	--color-km-muted-content: var(--km-muted-content);
 
-  /* Status */
-  --color-km-info: var(--km-info);
-  --color-km-info-content: var(--km-info-content);
-  --color-km-success: var(--km-success);
-  --color-km-success-content: var(--km-success-content);
-  --color-km-warning: var(--km-warning);
-  --color-km-warning-content: var(--km-warning-content);
-  --color-km-error: var(--km-error);
-  --color-km-error-content: var(--km-error-content);
+	/* Status */
+	--color-km-info: var(--km-info);
+	--color-km-info-content: var(--km-info-content);
+	--color-km-success: var(--km-success);
+	--color-km-success-content: var(--km-success-content);
+	--color-km-warning: var(--km-warning);
+	--color-km-warning-content: var(--km-warning-content);
+	--color-km-error: var(--km-error);
+	--color-km-error-content: var(--km-error-content);
 
-  /* Radius — semantic */
-  --radius-km-selector: var(--km-radius-selector);
-  --radius-km-field: var(--km-radius-field);
-  --radius-km-box: var(--km-radius-box);
+	/* Radius — semantic */
+	--radius-km-selector: var(--km-radius-selector);
+	--radius-km-field: var(--km-radius-field);
+	--radius-km-box: var(--km-radius-box);
 
-  /* Shadows */
-  --shadow-km-sm: var(--km-shadow-sm);
-  --shadow-km-md: var(--km-shadow-md);
-  --shadow-km-lg: var(--km-shadow-lg);
+	/* Shadows */
+	--shadow-km-sm: var(--km-shadow-sm);
+	--shadow-km-md: var(--km-shadow-md);
+	--shadow-km-lg: var(--km-shadow-lg);
+
+	/* Default border color */
+	--default-border-color: var(--color-km-base-300);
 }
