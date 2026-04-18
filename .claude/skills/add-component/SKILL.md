@@ -27,6 +27,7 @@ You are adding a new component to the Katamine UI library. Follow every phase in
 ## Phase 2 — Component Template (packages/ui)
 
 Create these files:
+
 - `packages/ui/src/templates/components/<name>/<PascalName>.svelte`
 - `packages/ui/src/templates/components/<name>/index.ts`
 
@@ -61,6 +62,7 @@ Follow the ComboBox pattern exactly. Every rule below is non-negotiable:
 ### index.ts
 
 Re-export the component as both default and named export:
+
 ```ts
 export { default as <PascalName> } from './<PascalName>.svelte';
 ```
@@ -93,6 +95,7 @@ Follow the ComboBox docs page pattern exactly:
 ### Add nav entry
 
 Add to `packages/docs/src/lib/nav.ts` in the `componentNav` array:
+
 ```ts
 { label: "<PascalName>", href: "/components/<name>" }
 ```
@@ -115,6 +118,7 @@ ALL of these checks MUST pass. If ANY fails, fix and re-run:
 ## Phase 6 — Summary
 
 Report:
+
 - Component path: `packages/ui/src/templates/components/<name>/<PascalName>.svelte`
 - Docs route: `/components/<name>`
 - Number of demos created
